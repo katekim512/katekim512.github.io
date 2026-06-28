@@ -1,170 +1,323 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KUMAP — Yeeun Kim</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="project.css">
-</head>
-<body>
-
-<div class="topbar">
-  <div class="wrap">
-    <a class="back-link" href="../index.html#projects">← 프로젝트로 돌아가기</a>
-    <div class="brand">Yeeun Kim</div>
-  </div>
-</div>
-
-<header class="proj-hero">
-  <div class="wrap">
-    <div class="kicker">사업화 및 배포</div>
-    <h1>KUMAP (쿠맵)</h1>
-    <p class="subtitle">학생 관점에서 설계한 전공 역량 기반 로드맵 서비스. 학사팀·정보운영팀과 협업해 실제 사업화와 배포까지 이어졌습니다.</p>
-    <div class="meta-row">
-      <span class="meta-chip">Product Manager / Frontend Developer</span>
-      <span class="meta-chip">2024.06 — 2024.12</span>
-      <span class="meta-chip">기여도 40%</span>
-      <span class="meta-chip">TF 5명</span>
-    </div>
-  </div>
-</header>
-
-<section class="proj-section">
-  <div class="wrap">
-    <h2>배경</h2>
-    <p>건국대학교의 기존 전공 로드맵 안내는 교직원 시선에서 기획·운영되어 왔습니다. 학생 입장에서는 학과별로 디자인이 다른 PDF, 클릭 가능 여부를 알 수 없는 UX, 강의 정보를 바로 확인할 수 없는 구조 등의 불편이 있었습니다.</p>
-    <p>학사팀·정보운영팀과 직접 협업하며 장애인 도보 네비게이션, KU Meet, 도서관 출입 시스템 등 여러 아이디어를 검토했고, 그중 학생들이 직접 사용하는 사이트의 문제를 해결할 수 있고 오픈 데이터로 개인정보 이슈 없이 구현 가능한 <strong>'꿈찾기 로드맵(현 KUMAP)'</strong>을 최종 방향으로 선정했습니다.</p>
-  </div>
-</section>
-
-<section class="proj-section">
-  <div class="wrap">
-    <h2>문제와 개선</h2>
-    <div class="compare-grid">
-      <div class="compare-card before">
-        <span class="tag">Before</span>
-        <p>학과별로 상이한 PDF 디자인, 클릭 가능한지 알 수 없는 UX, 강의 정보를 바로 확인할 수 없음</p>
-      </div>
-      <div class="compare-card after">
-        <span class="tag">After</span>
-        <p>학과별 로드맵을 통일된 디자인으로 제공, 직관적인 클릭으로 강의 정보를 바로 열람 가능</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KUMAP — Yeeun Kim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="project.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="wrap">
+        <a class="back-link" href="../index.html#projects"
+          >← 프로젝트로 돌아가기</a
+        >
+        <div class="brand">Yeeun Kim</div>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="proj-section">
-  <div class="wrap">
-    <h2>핵심 기능</h2>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="ftitle"><span class="num">1</span>관심 직군 입력 기반 추천</div>
-        <p>관심 직군을 입력하면 원전공/타전공 수업을 추천받고, 바로 '나의 로드맵'에 담아 학업 계획을 직접 설계할 수 있습니다.</p>
+    <header class="proj-hero">
+      <div class="wrap">
+        <div class="kicker">사업화 및 배포</div>
+        <h1>KUMAP (쿠맵)</h1>
+        <p class="subtitle">
+          학생 관점에서 설계한 전공 역량 기반 로드맵 서비스. 학사팀·정보운영팀과
+          협업해 실제 사업화와 배포까지 이어졌습니다.
+        </p>
+        <div class="meta-row">
+          <span class="meta-chip">Product Manager / Frontend Developer</span>
+          <span class="meta-chip">2024.06 — 2024.12</span>
+          <span class="meta-chip">기여도 40%</span>
+          <span class="meta-chip">TF 5명</span>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="ftitle"><span class="num">2</span>전체 로드맵 디자인 통일</div>
-        <p>학과마다 다르던 로드맵 디자인을 학기별·과목별 정렬로 통일하고, 2025 자유전공학부 신입생 기준 선택 과정을 8단계에서 2단계(25%)로 축소했습니다.</p>
+    </header>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>배경</h2>
+        <p>
+          건국대학교의 기존 전공 로드맵 안내는 교직원 시선에서 기획·운영되어
+          왔습니다. 학생 입장에서는 학과별로 디자인이 다른 PDF, 클릭 가능 여부를
+          알 수 없는 UX, 강의 정보를 바로 확인할 수 없는 구조 등의 불편이
+          있었습니다.
+        </p>
+        <p>
+          학사팀·정보운영팀과 직접 협업하며 장애인 도보 네비게이션, KU Meet,
+          도서관 출입 시스템 등 여러 아이디어를 검토했고, 그중 학생들이 직접
+          사용하는 사이트의 문제를 해결할 수 있고 오픈 데이터로 개인정보 이슈
+          없이 구현 가능한 <strong>'꿈찾기 로드맵(현 KUMAP)'</strong>을 최종
+          방향으로 선정했습니다.
+        </p>
       </div>
-      <div class="feature-card">
-        <div class="ftitle"><span class="num">3</span>공유 기능</div>
-        <p>완성한 로드맵을 친구나 컨설턴트에게 공유해 함께 검토할 수 있습니다.</p>
+    </section>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>문제와 개선</h2>
+        <div class="compare-grid">
+          <div class="compare-card before">
+            <span class="tag">Before</span>
+            <p>
+              학과별로 상이한 PDF 디자인, 클릭 가능한지 알 수 없는 UX, 강의
+              정보를 바로 확인할 수 없음
+            </p>
+          </div>
+          <div class="compare-card after">
+            <span class="tag">After</span>
+            <p>
+              학과별 로드맵을 통일된 디자인으로 제공, 직관적인 클릭으로 강의
+              정보를 바로 열람 가능
+            </p>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>핵심 기능</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="ftitle">
+              <span class="num">1</span>관심 직군 입력 기반 추천
+            </div>
+            <p>
+              관심 직군을 입력하면 원전공/타전공 수업을 추천받고, 바로 '나의
+              로드맵'에 담아 학업 계획을 직접 설계할 수 있습니다.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="ftitle">
+              <span class="num">2</span>전체 로드맵 디자인 통일
+            </div>
+            <p>
+              학과마다 다르던 로드맵 디자인을 학기별·과목별 정렬로 통일하고,
+              2025 자유전공학부 신입생 기준 선택 과정을 8단계에서 2단계(25%)로
+              축소했습니다.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="ftitle"><span class="num">3</span>공유 기능</div>
+            <p>
+              완성한 로드맵을 친구나 컨설턴트에게 공유해 함께 검토할 수
+              있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>나의 역할</h2>
+        <div class="role-box">
+          <div class="item">
+            <div class="label">담당</div>
+            <div class="value">이해관계자 요구를 서비스로 번역</div>
+          </div>
+          <div class="item">
+            <div class="label">방식</div>
+            <div class="value">학사팀·정보운영팀 협업, 우선순위 조정</div>
+          </div>
+        </div>
+        <p style="margin-top: 16px">
+          학사팀·정보운영팀과 협업하며 학생 니즈, 행정 조직의 제약(개인정보
+          보호, 부서 간 협업 여부), 기술적 구현 가능성을 함께 고려해
+          기획·설계했습니다. 개인정보 이슈를 고려해 오픈 데이터 기반으로
+          서비스를 설계했고, 단순 추천보다 학생이 직접 선택·수정할 수 있는
+          구조를 핵심 가치로 정했습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>성과</h2>
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="num">2024.12</div>
+            <div class="label">홈페이지 출시</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">2025.01</div>
+            <div class="label">신입생 입학 메일 전달</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">2025.01</div>
+            <div class="label">학교 홈페이지 Footer 링크 삽입</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">2025.02</div>
+            <div class="label">GA 기반 통계 전달</div>
+          </div>
+        </div>
+        <p style="margin-top: 16px">
+          개발 완료 후 실제 상용화되어 학교 공식 채널에 노출되었으며, 7개 대학
+          연합 '2024 대학혁신지원사업 우수사례 성과포럼'에서 우수 성과 사례로
+          선정되었습니다. 학생개발팀 인터뷰, 교내 뉴스, 유튜브 콘텐츠 등으로도
+          소개되었습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>발표 현장</h2>
+        <div class="photo-carousel kumap-carousel" data-carousel>
+          <button
+            class="carousel-button prev"
+            type="button"
+            aria-label="이전 사진"
+            aria-controls="kumap-photo-track"
+          >
+            ‹
+          </button>
+          <div
+            class="carousel-track"
+            id="kumap-photo-track"
+            tabindex="0"
+            aria-label="KUMAP 발표 현장 사진"
+          >
+            <figure class="carousel-slide portrait">
+              <img
+                src="images/kumap-1.jpg"
+                alt="KUMAP 발표 현장 사진 1"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide portrait">
+              <img
+                src="images/kumap-2.jpg"
+                alt="KUMAP 발표 현장 사진 2"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide landscape">
+              <img
+                src="images/kumap-3.jpg"
+                alt="KUMAP 발표 현장 사진 3"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide landscape">
+              <img
+                src="images/kumap-4.jpg"
+                alt="KUMAP 발표 현장 사진 4"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide portrait">
+              <img
+                src="images/kumap-5.jpg"
+                alt="KUMAP 발표 현장 사진 5"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide landscape">
+              <img
+                src="images/kumap-6.jpg"
+                alt="KUMAP 발표 현장 사진 6"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide landscape">
+              <img
+                src="images/kumap-7.jpg"
+                alt="KUMAP 발표 현장 사진 7"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide landscape">
+              <img
+                src="images/kumap-8.jpg"
+                alt="KUMAP 발표 현장 사진 8"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+          <button
+            class="carousel-button next"
+            type="button"
+            aria-label="다음 사진"
+            aria-controls="kumap-photo-track"
+          >
+            ›
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="proj-links">
+      <a
+        href="https://github.com/katekim512/RoadMapKU.git"
+        target="_blank"
+        rel="noopener noreferrer"
+        >🐙 GitHub Repository</a
+      >
     </div>
-  </div>
-</section>
 
-<section class="proj-section">
-  <div class="wrap">
-    <h2>나의 역할</h2>
-    <div class="role-box">
-      <div class="item">
-        <div class="label">담당</div>
-        <div class="value">이해관계자 요구를 서비스로 번역</div>
-      </div>
-      <div class="item">
-        <div class="label">방식</div>
-        <div class="value">학사팀·정보운영팀 협업, 우선순위 조정</div>
-      </div>
-    </div>
-    <p style="margin-top:16px;">학사팀·정보운영팀과 협업하며 학생 니즈, 행정 조직의 제약(개인정보 보호, 부서 간 협업 여부), 기술적 구현 가능성을 함께 고려해 기획·설계했습니다. 개인정보 이슈를 고려해 오픈 데이터 기반으로 서비스를 설계했고, 단순 추천보다 학생이 직접 선택·수정할 수 있는 구조를 핵심 가치로 정했습니다.</p>
-  </div>
-</section>
+    <script>
+      document.querySelectorAll('[data-carousel]').forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track')
+        const previousButton = carousel.querySelector('.carousel-button.prev')
+        const nextButton = carousel.querySelector('.carousel-button.next')
+        const reducedMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)',
+        ).matches
+        let ticking = false
 
-<section class="proj-section">
-  <div class="wrap">
-    <h2>성과</h2>
-    <div class="stat-row">
-      <div class="stat-card"><div class="num">2024.12</div><div class="label">홈페이지 출시</div></div>
-      <div class="stat-card"><div class="num">2025.01</div><div class="label">신입생 입학 메일 전달</div></div>
-      <div class="stat-card"><div class="num">2025.01</div><div class="label">학교 홈페이지 Footer 링크 삽입</div></div>
-      <div class="stat-card"><div class="num">2025.02</div><div class="label">GA 기반 통계 전달</div></div>
-    </div>
-    <p style="margin-top:16px;">개발 완료 후 실제 상용화되어 학교 공식 채널에 노출되었으며, 7개 대학 연합 '2024 대학혁신지원사업 우수사례 성과포럼'에서 우수 성과 사례로 선정되었습니다. 학생개발팀 인터뷰, 교내 뉴스, 유튜브 콘텐츠 등으로도 소개되었습니다.</p>
-  </div>
-</section>
+        const scrollStep = () => {
+          const visibleSlide = Array.from(
+            track.querySelectorAll('.carousel-slide'),
+          ).find(
+            slide =>
+              slide.offsetLeft + slide.offsetWidth > track.scrollLeft + 2,
+          )
+          return visibleSlide
+            ? visibleSlide.offsetWidth +
+                (parseFloat(getComputedStyle(track).gap) || 0)
+            : track.clientWidth
+        }
 
-<section class="proj-section">
-  <div class="wrap">
-    <h2>발표 현장</h2>
-    <div class="photo-carousel kumap-carousel" data-carousel>
-      <button class="carousel-button prev" type="button" aria-label="이전 사진" aria-controls="kumap-photo-track">‹</button>
-      <div class="carousel-track" id="kumap-photo-track" tabindex="0" aria-label="KUMAP 발표 현장 사진">
-        <figure class="carousel-slide portrait"><img src="images/kumap-1.jpg" alt="KUMAP 발표 현장 사진 1" loading="lazy"></figure>
-        <figure class="carousel-slide portrait"><img src="images/kumap-2.jpg" alt="KUMAP 발표 현장 사진 2" loading="lazy"></figure>
-        <figure class="carousel-slide landscape"><img src="images/kumap-3.jpg" alt="KUMAP 발표 현장 사진 3" loading="lazy"></figure>
-        <figure class="carousel-slide landscape"><img src="images/kumap-4.jpg" alt="KUMAP 발표 현장 사진 4" loading="lazy"></figure>
-        <figure class="carousel-slide portrait"><img src="images/kumap-5.jpg" alt="KUMAP 발표 현장 사진 5" loading="lazy"></figure>
-        <figure class="carousel-slide landscape"><img src="images/kumap-6.jpg" alt="KUMAP 발표 현장 사진 6" loading="lazy"></figure>
-        <figure class="carousel-slide landscape"><img src="images/kumap-7.jpg" alt="KUMAP 발표 현장 사진 7" loading="lazy"></figure>
-        <figure class="carousel-slide landscape"><img src="images/kumap-8.jpg" alt="KUMAP 발표 현장 사진 8" loading="lazy"></figure>
-      </div>
-      <button class="carousel-button next" type="button" aria-label="다음 사진" aria-controls="kumap-photo-track">›</button>
-    </div>
-  </div>
-</section>
+        const updateButtons = () => {
+          previousButton.disabled = track.scrollLeft <= 2
+          nextButton.disabled =
+            track.scrollLeft + track.clientWidth >= track.scrollWidth - 2
+          ticking = false
+        }
 
-<div class="proj-links">
-  <a href="https://github.com/katekim512/RoadMapKU.git" target="_blank" rel="noopener noreferrer">🐙 GitHub Repository</a>
-</div>
-
-<script>
-  document.querySelectorAll('[data-carousel]').forEach((carousel) => {
-    const track = carousel.querySelector('.carousel-track');
-    const previousButton = carousel.querySelector('.carousel-button.prev');
-    const nextButton = carousel.querySelector('.carousel-button.next');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let ticking = false;
-
-    const scrollStep = () => {
-      const visibleSlide = Array.from(track.querySelectorAll('.carousel-slide')).find((slide) => slide.offsetLeft + slide.offsetWidth > track.scrollLeft + 2);
-      return visibleSlide ? visibleSlide.offsetWidth + (parseFloat(getComputedStyle(track).gap) || 0) : track.clientWidth;
-    };
-
-    const updateButtons = () => {
-      previousButton.disabled = track.scrollLeft <= 2;
-      nextButton.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
-      ticking = false;
-    };
-
-    previousButton.addEventListener('click', () => {
-      track.scrollBy({ left: -scrollStep(), behavior: reducedMotion ? 'auto' : 'smooth' });
-    });
-    nextButton.addEventListener('click', () => {
-      track.scrollBy({ left: scrollStep(), behavior: reducedMotion ? 'auto' : 'smooth' });
-    });
-    track.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateButtons);
-        ticking = true;
-      }
-    }, { passive: true });
-    window.addEventListener('resize', updateButtons);
-    updateButtons();
-  });
-</script>
-
-</body>
+        previousButton.addEventListener('click', () => {
+          track.scrollBy({
+            left: -scrollStep(),
+            behavior: reducedMotion ? 'auto' : 'smooth',
+          })
+        })
+        nextButton.addEventListener('click', () => {
+          track.scrollBy({
+            left: scrollStep(),
+            behavior: reducedMotion ? 'auto' : 'smooth',
+          })
+        })
+        track.addEventListener(
+          'scroll',
+          () => {
+            if (!ticking) {
+              window.requestAnimationFrame(updateButtons)
+              ticking = true
+            }
+          },
+          { passive: true },
+        )
+        window.addEventListener('resize', updateButtons)
+        updateButtons()
+      })
+    </script>
+  </body>
 </html>
