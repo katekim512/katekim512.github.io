@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뽑아보카 — Yeeun Kim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="project.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="wrap">
+        <a class="back-link" href="../index.html#projects"
+          >← 프로젝트로 돌아가기</a
+        >
+        <div class="brand">Yeeun Kim</div>
+      </div>
+    </div>
+
+    <header class="proj-hero">
+      <div class="wrap">
+        <div class="kicker">Epson Challenge 장려상</div>
+        <h1>뽑아보카</h1>
+        <p class="subtitle">
+          EPSON 프린터기와 AI를 결합한 단어 카드 서비스. 사용자 입력에 따라
+          다양한 어휘를 노출해주는 카드를 생성하고 출력합니다.
+        </p>
+        <div class="meta-row">
+          <span class="meta-chip">Product Manager / Frontend Developer</span>
+          <span class="meta-chip">2025.04 — 2025.06</span>
+          <span class="meta-chip">기여도 40%</span>
+          <span class="meta-chip">TF 4명</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>배경</h2>
+        <p>
+          EPSON Connect API를 활용한 비즈니스 솔루션 개발 공모전을 계기로 유아기
+          아동 언어 학습용 단어 카드 시장을 조사했습니다. 자체 설문 결과
+          응답자의 71.1%가 유아기 언어 학습에 단어 카드를 사용해본 경험이
+          있었지만, 기존 카드는 창의력 부족과 빠른 흥미 소진이라는 약점을 가지고
+          있었습니다.
+        </p>
+        <p>
+          리드어롱, 듀오링고, 한글공부 등 기존 서비스를 비교한 결과, 맞춤형
+          언어학습·유아 맞춤형 서비스·프린트 옵션·이미지 제공을 모두 갖춘
+          서비스가 없다는 점을 확인했습니다. 부모들은 더 많은 단어 카드가
+          아니라, 아이가 흥미를 느끼는 순간에 맞춘 카드를 원했습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>핵심 기능</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="ftitle">
+              <span class="num">1</span>자유도 높은 단어 테마 생성
+            </div>
+            <p>
+              원하는 테마를 입력하면 AI가 해당 테마에 맞는 단어와 카드 이미지를
+              생성합니다.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="ftitle">
+              <span class="num">2</span>나만의 단어 카드 출력
+            </div>
+            <p>
+              다양한 템플릿으로 생성한 카드를 EPSON Connect API로 바로 출력할 수
+              있습니다.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="ftitle"><span class="num">3</span>단어 성장 일지</div>
+            <p>
+              학습한 단어 기록을 날짜별로 모아 아이의 성장 일지로 보관합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>AI 기술에서의 핵심 판단</h2>
+        <p>
+          목적에 맞는 결과를 얻기 위해 AI에게 어디까지 맡기고 어디서 통제할지가
+          핵심 과제였습니다. 사용자 입력 → 동사의 다양성 확보 → 예문에 맞는
+          이미지 생성 → 모델에 적합한 프롬프트 작성까지 단계적으로 프롬프트를
+          발전시켰습니다.
+        </p>
+        <ul>
+          <li>
+            예문이 비슷하게 반복되는 문제를 발견해, 동사를 다양하게 포함하도록
+            프롬프트를 보강했습니다.
+          </li>
+          <li>
+            예문과 생성 이미지 간 유기성이 부족해, 이미지 생성 시 예문 내용을
+            반영하도록 조정했습니다.
+          </li>
+          <li>
+            Dall-E의 한국어 인식률이 낮아, ChatGPT로 예문을 영어로 번역한 뒤
+            Dall-E에 입력하는 방식으로 전환했습니다.
+          </li>
+        </ul>
+        <p>
+          여러 시행착오를 통해 (1) 사용자 입력 정제, (2) 이미지 생성 시 부적절한
+          요소 차단, (3) 유아 친화적 난이도 설정이라는 세 가지 원칙을
+          적용했습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>비즈니스 전략</h2>
+        <p>
+          주요 타깃은 다양한 언어교육에 관심을 가진 국내 영유아 학부모입니다.
+          맘카페 서포터즈를 통한 오프라인 홍보와, 충성 고객을 대상으로 한 맞춤형
+          마케팅을 통해 초기 사용자를 확보하고자 했습니다.
+        </p>
+        <p>
+          비즈니스 모델은 광고 제거 구독 플랜, 프리미엄 구독 플랜, 기본 템플릿
+          이외의 추가 구매 수익으로 구성했으며, 유아기 아동 부모 타깃 기업과의
+          광고 협업, 캐릭터 IP 기업과의 콜라보를 통한 추가 수익도 함께
+          설계했습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <div class="wrap">
+        <h2>발표 현장</h2>
+        <div class="photo-carousel" data-carousel>
+          <button
+            class="carousel-button prev"
+            type="button"
+            aria-label="이전 사진"
+            aria-controls="bbobavoca-photo-track"
+          >
+            ‹
+          </button>
+          <div
+            class="carousel-track"
+            id="bbobavoca-photo-track"
+            tabindex="0"
+            aria-label="뽑아보카 발표 현장 사진"
+          >
+            <figure class="carousel-slide">
+              <img
+                src="images/bbobavoca-1.jpg"
+                alt="뽑아보카 발표 현장 사진 1"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide">
+              <img
+                src="images/bbobavoca-2.jpg"
+                alt="뽑아보카 발표 현장 사진 2"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide">
+              <img
+                src="images/bbobavoca-3.jpg"
+                alt="뽑아보카 발표 현장 사진 3"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide">
+              <img
+                src="images/bbobavoca-4.jpg"
+                alt="뽑아보카 발표 현장 사진 4"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide">
+              <img
+                src="images/bbobavoca-5.jpg"
+                alt="뽑아보카 발표 현장 사진 5"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide">
+              <img
+                src="images/bbobavoca-6.jpg"
+                alt="뽑아보카 발표 현장 사진 6"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide">
+              <img
+                src="images/bbobavoca-7.jpg"
+                alt="뽑아보카 수상 기념 단체 사진"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="carousel-slide">
+              <img
+                src="images/bbobavoca-8.jpg"
+                alt="뽑아보카 발표 현장 사진 8"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+          <button
+            class="carousel-button next"
+            type="button"
+            aria-label="다음 사진"
+            aria-controls="bbobavoca-photo-track"
+          >
+            ›
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="proj-links">
+      <a
+        href="https://github.com/jiheunkim/BbobaVoca"
+        target="_blank"
+        rel="noopener noreferrer"
+        >🐙 GitHub Repository</a
+      >
+    </div>
+
+    <script>
+      document.querySelectorAll('[data-carousel]').forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track')
+        const previousButton = carousel.querySelector('.carousel-button.prev')
+        const nextButton = carousel.querySelector('.carousel-button.next')
+        const reducedMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)',
+        ).matches
+        let ticking = false
+
+        const scrollStep = () => {
+          const slide = track.querySelector('.carousel-slide')
+          const gap = parseFloat(getComputedStyle(track).gap) || 0
+          return slide.getBoundingClientRect().width + gap
+        }
+
+        const updateButtons = () => {
+          previousButton.disabled = track.scrollLeft <= 2
+          nextButton.disabled =
+            track.scrollLeft + track.clientWidth >= track.scrollWidth - 2
+          ticking = false
+        }
+
+        previousButton.addEventListener('click', () => {
+          track.scrollBy({
+            left: -scrollStep(),
+            behavior: reducedMotion ? 'auto' : 'smooth',
+          })
+        })
+        nextButton.addEventListener('click', () => {
+          track.scrollBy({
+            left: scrollStep(),
+            behavior: reducedMotion ? 'auto' : 'smooth',
+          })
+        })
+        track.addEventListener(
+          'scroll',
+          () => {
+            if (!ticking) {
+              window.requestAnimationFrame(updateButtons)
+              ticking = true
+            }
+          },
+          { passive: true },
+        )
+        window.addEventListener('resize', updateButtons)
+        updateButtons()
+      })
+    </script>
+  </body>
+</html>
