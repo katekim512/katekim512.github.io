@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yeeun Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --ink:#0F172A;
+    --ink-soft:#64748B;
+    --accent:#2563EB;
+    --accent-soft:#EFF4FF;
+    --pill-bg:#F1F5F9;
+    --line:#E2E8F0;
+    --sans:'Plus Jakarta Sans', -apple-system, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--accent);text-decoration:none;}
+
+  .wrap{
+    max-width:980px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  .navbar{
+    position:sticky;
+    top:0;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    z-index:50;
+  }
+  .navbar .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:68px;
+  }
+  .navbar .brand{
+    font-weight:800;
+    font-size:16px;
+    color:var(--ink);
+  }
+  .navbar nav{
+    display:flex;
+    gap:28px;
+  }
+  .navbar nav a{
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-soft);
+  }
+  .navbar nav a:hover{color:var(--ink);}
+
+  .navbar .mobile-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 64px;
+  }
+  .hero-grid{
+    display:flex;
+    align-items:center;
+    gap:56px;
+  }
+  .hero-text{flex:1;}
+
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    background:var(--accent-soft);
+    color:var(--accent);
+    font-size:13px;
+    font-weight:600;
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:20px;
+  }
+  .badge .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:#22C55E;
+  }
+
+  .hero h1{
+    font-size:46px;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    margin-bottom:6px;
+  }
+  .hero .kr{
+    font-size:16px;
+    color:var(--ink-soft);
+    font-weight:500;
+    margin-bottom:20px;
+  }
+  .hero p.lede{
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:480px;
+    margin-bottom:28px;
+  }
+  .hero p.lede a{color:var(--ink);font-weight:600;border-bottom:1px solid var(--line);}
+  .hero p.lede a:hover{border-color:var(--accent);color:var(--accent);}
+
+  .pill-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .pill-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--pill-bg);
+    color:var(--ink);
+    font-size:14px;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:999px;
+    border:1px solid transparent;
+    transition:all .15s ease;
+  }
+  .pill-btn:hover{
+    background:var(--accent-soft);
+    color:var(--accent);
+    transform:translateY(-1px);
+  }
+
+  .avatar-wrap{
+    flex-shrink:0;
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background:linear-gradient(160deg,#DCE8FF,#F1F5F9);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .avatar-wrap .initials{
+    width:172px;
+    height:172px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:52px;
+    font-weight:800;
+    color:var(--accent);
+    box-shadow:0 8px 24px rgba(37,99,235,0.12);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    padding:48px 0;
+    border-top:1px solid var(--line);
+    scroll-margin-top:84px;
+  }
+  section .eyebrow{
+    font-size:12.5px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+  section h2{
+    font-size:26px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:28px;
+  }
+
+  /* Focus pills (research interests style) */
+  .focus-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .focus-pill{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--pill-bg);
+    border-radius:999px;
+    padding:12px 20px;
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .focus-pill .ico{font-size:17px;}
+
+  /* Cards for education / experience */
+  .card-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .card{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:20px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:22px 24px;
+    transition:box-shadow .15s ease, border-color .15s ease;
+  }
+  .card:hover{
+    box-shadow:0 8px 24px rgba(15,23,42,0.06);
+    border-color:#D6DEEA;
+  }
+  .card .when{
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink-soft);
+    padding-top:2px;
+  }
+  .card .org{
+    font-size:16.5px;
+    font-weight:700;
+    margin-bottom:3px;
+  }
+  .card .role{
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+
+  /* Skills */
+  .skill-block{margin-bottom:18px;}
+  .skill-block:last-child{margin-bottom:0;}
+  .skill-block .cat{
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    margin-bottom:10px;
+  }
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-size:13.5px;
+    font-weight:600;
+    background:var(--pill-bg);
+    border-radius:999px;
+    padding:7px 14px;
+  }
+
+  /* Projects */
+  .project-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:24px;
+    margin-bottom:14px;
+    transition:box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+  }
+  .project-card:hover{
+    box-shadow:0 10px 28px rgba(15,23,42,0.07);
+    border-color:#D6DEEA;
+    transform:translateY(-2px);
+  }
+  .project-card .top-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+  }
+  .project-card .top-row a.title{
+    font-size:17.5px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .project-card .top-row a.title:hover{color:var(--accent);}
+  .award-chip{
+    font-size:12px;
+    font-weight:700;
+    background:var(--accent-soft);
+    color:var(--accent);
+    padding:5px 12px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .project-card .desc{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    max-width:640px;
+  }
+
+  /* Awards */
+  .award-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 4px;
+    border-bottom:1px solid var(--line);
+  }
+  .award-row:last-child{border-bottom:none;}
+  .award-row .name{font-size:15px;font-weight:600;}
+  .award-row .when{font-size:13px;color:var(--ink-soft);font-weight:600;}
+
+  footer{
+    padding:40px 0 56px;
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:760px){
+    .navbar nav{display:none;}
+    .wrap{padding:0 20px;}
+    .hero{padding:48px 0 40px;}
+    .hero-grid{flex-direction:column-reverse;gap:32px;text-align:center;}
+    .hero-text{display:flex;flex-direction:column;align-items:center;}
+    .hero p.lede{text-align:center;}
+    .pill-links{justify-content:center;}
+    .hero h1{font-size:34px;}
+    .avatar-wrap{width:140px;height:140px;}
+    .avatar-wrap .initials{width:120px;height:120px;font-size:38px;}
+    .card{grid-template-columns:1fr;gap:6px;}
+    .award-row{flex-direction:column;align-items:flex-start;gap:4px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="wrap">
+    <div class="brand">Yeeun Kim</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#awards">Awards</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="about">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="badge"><span class="dot"></span> ML Engineer · Konkuk University</div>
+        <h1>Yeeun Kim</h1>
+        <div class="kr">김예은</div>
+        <p class="lede">데이터로 문제를 정의하고, 머신러닝과 LLM으로 실제 서비스 개선까지 연결합니다. 현재 <a href="#" target="_blank">건국대학교</a>에서 공부하며, <a href="#" target="_blank">Graph &amp; Language Intelligence Lab</a>에서 학부연구생으로 활동하고 있습니다.</p>
+        <div class="pill-links">
+          <a class="pill-btn" href="mailto:yeeunkim512@gmail.com">✉️ Email</a>
+          <a class="pill-btn" href="https://github.com/katekim512" target="_blank">🐙 GitHub</a>
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <div class="initials">YK</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="focus">
+  <div class="wrap">
+    <div class="eyebrow">Focus Areas</div>
+    <h2>지금 집중하는 것</h2>
+    <div class="focus-pills">
+      <div class="focus-pill"><span class="ico">🤖</span> LLM 기반 개인화 서비스 설계</div>
+      <div class="focus-pill"><span class="ico">📊</span> 사용자 데이터 기반 의사결정</div>
+      <div class="focus-pill"><span class="ico">🧪</span> 실험 중심 문제 해결</div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow">Education</div>
+    <h2>학력</h2>
+    <div class="card-list">
+      <div class="card">
+        <div class="when">2022.03 — ing</div>
+        <div>
+          <div class="org">건국대학교</div>
+          <div class="role">스마트ICT융합공학과 / 응용통계학과</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="when">2019.03 — 2022.02</div>
+        <div>
+          <div class="org">숙명여자고등학교</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience</div>
+    <h2>경력</h2>
+    <div class="card-list">
+      <div class="card">
+        <div class="when">2025.08 — ing</div>
+        <div>
+          <div class="org">Graph &amp; Language Intelligence Lab</div>
+          <div class="role">건국대학교 · 학부연구생</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="when">2024.06 — 2024.12</div>
+        <div>
+          <div class="org">건국대 학생개발팀</div>
+          <div class="role">팀원</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Skills</div>
+    <h2>기술 스택</h2>
+    <div class="skill-block">
+      <div class="cat">ML / Data</div>
+      <div class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">LLM (Prompt Engineering / API)</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="cat">Frontend</div>
+      <div class="tag-row">
+        <span class="tag">React</span>
+        <span class="tag">TypeScript</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="cat">Tools</div>
+      <div class="tag-row">
+        <span class="tag">GitHub</span>
+        <span class="tag">Notion</span>
+        <span class="tag">Figma</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Projects</div>
+    <h2>프로젝트</h2>
+
+    <div class="project-card">
+      <div class="top-row">
+        <a class="title" href="https://github.com/katekim512" target="_blank">로그 이상탐지 모델 설계</a>
+      </div>
+      <p class="desc">템플릿 기반 로그 구조화와 임베딩 기법을 결합해 F1-score 기준 약 5%p의 이상탐지 성능을 개선했습니다.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="top-row">
+        <a class="title" href="https://github.com/jiheunkim/BbobaVoca" target="_blank">뽑아보카</a>
+        <span class="award-chip">Epson Challenge 장려상</span>
+      </div>
+      <p class="desc">LLM 기반으로 사용자 맞춤 단어카드를 생성하고 Epson 프린터로 출력하는 서비스입니다.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="top-row">
+        <a class="title" href="https://github.com/katekim512/RoadMapKU.git" target="_blank">KUMAP</a>
+        <span class="award-chip">사업화 및 배포</span>
+      </div>
+      <p class="desc">전공 역량 기반 로드맵 서비스로, 사용자와 운영자 간 요구사항 충돌을 데이터 기반으로 해결하고 실제 배포까지 이어졌습니다.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="top-row">
+        <a class="title" href="https://github.com/katekim512/AI-Learning.git" target="_blank">아이러닝</a>
+        <span class="award-chip">관광데이터 공모전 우수상</span>
+      </div>
+      <p class="desc">AI 기반으로 사용자 맞춤형 역사 교육 여행 일정을 설계해주는 서비스입니다.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="top-row">
+        <a class="title" href="https://github.com/katekim512/LLapport.git" target="_blank">LLapport</a>
+        <span class="award-chip">메디컬 해커톤 장려상</span>
+      </div>
+      <p class="desc">뇌졸중 조기진단을 돕는 서비스입니다.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="top-row">
+        <a class="title" href="https://github.com/katekim512/Conicorn.git" target="_blank">Coinicorn</a>
+      </div>
+      <p class="desc">해외 가상화폐 뉴스를 번역해주는 서비스입니다.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="top-row">
+        <a class="title" href="https://github.com/katekim512/PoSSG.git" target="_blank">포쓱</a>
+      </div>
+      <p class="desc">생성형 AI로 포트폴리오를 자동 생성해주는 서비스입니다.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <div class="eyebrow">Awards</div>
+    <h2>수상</h2>
+    <div class="card" style="display:block;border-radius:16px;">
+      <div class="award-row">
+        <div class="name">문화체육관광 데이터 활용대회 최우수상</div>
+        <div class="when">2024.12</div>
+      </div>
+      <div class="award-row">
+        <div class="name">관광데이터 활용 공모전 우수상</div>
+        <div class="when">2024.11</div>
+      </div>
+      <div class="award-row">
+        <div class="name">Epson Challenge 장려상</div>
+        <div class="when">2024.06</div>
+      </div>
+      <div class="award-row">
+        <div class="name">KU 메디컬 해커톤 장려상</div>
+        <div class="when">2023.10</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Yeeun Kim</footer>
+
+</body>
+</html>
