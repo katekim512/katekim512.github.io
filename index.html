@@ -370,14 +370,20 @@
       }
 
       /* Projects */
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
       .project-card {
-        display: block;
+        display: flex;
+        flex-direction: column;
         background: #fff;
         color: var(--ink);
         border: 1px solid var(--line);
         border-radius: 16px;
         padding: 24px;
-        margin-bottom: 14px;
+        margin-bottom: 0;
         transition: box-shadow 0.15s ease, border-color 0.15s ease,
           transform 0.15s ease;
       }
@@ -412,6 +418,7 @@
         white-space: nowrap;
       }
       .project-card .desc {
+        flex: 1;
         font-size: 14.5px;
         color: var(--ink-soft);
         max-width: 640px;
@@ -454,6 +461,9 @@
 
       /* ---------- RESPONSIVE ---------- */
       @media (max-width: 760px) {
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
         .navbar nav {
           display: none;
         }
@@ -724,6 +734,7 @@
         <div class="eyebrow">Projects</div>
         <h2 data-i18n="projects.title">프로젝트</h2>
 
+        <div class="project-grid">
         <a class="project-card" href="projects/log-anomaly-detection.html">
           <div class="top-row">
             <span class="title" data-i18n="projects.log.title"
@@ -840,6 +851,7 @@
           </p>
           <span class="view-more" data-i18n="projects.more">자세히 보기 →</span>
         </a>
+        </div>
       </div>
     </section>
 
