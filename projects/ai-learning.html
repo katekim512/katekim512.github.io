@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>아이러닝 — Yeeun Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="back-link" href="../index.html#projects">← 프로젝트로 돌아가기</a>
+    <div class="brand">Yeeun Kim</div>
+  </div>
+</div>
+
+<header class="proj-hero">
+  <div class="wrap">
+    <div class="kicker">2024 관광데이터 활용 공모전</div>
+    <h1>아이러닝 (AI-Learning)</h1>
+    <p class="subtitle">한국관광공사 관광콘텐츠를 활용한 AI 기반 맞춤형 역사 교육 여행 일정 서비스입니다.</p>
+    <div class="meta-row">
+      <span class="meta-chip">Frontend Developer</span>
+      <span class="meta-chip">팀 프로패서 · 4인</span>
+    </div>
+  </div>
+</header>
+
+<section class="proj-section">
+  <div class="wrap">
+    <h2>배경</h2>
+    <p>역사 문화 탐방을 통해 직접 역사를 배운 경험을 토대로, 자녀와 교육적인 역사 탐방을 떠나고 싶어 하는 부모님들을 위한 서비스의 필요성을 느꼈습니다. 자체 설문조사에서 부모님들이 행사 정보 검색의 어려움(45%)과 시간 계획의 어려움(25%) 때문에 교육 여행을 선뜻 추진하지 못한다는 점을 확인했고, 이를 해결하기 위해 자녀를 위한 간단한 역사 교육 여행 플랜을 제공하는 '아이러닝'을 구상했습니다.</p>
+  </div>
+</section>
+
+<section class="proj-section">
+  <div class="wrap">
+    <h2>핵심 기능</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="ftitle"><span class="num">1</span>AI 기반 맞춤 여행 일정 생성</div>
+        <p>ChatGPT API로 국문관광정보 API에서 추출한 장소 중 사용자가 선택한 결과를 바탕으로 여행 일정을 추천합니다. '주관식 일정 요청' 기능으로 추가 요구사항을 반영해 자유도 높게 조정할 수 있습니다.</p>
+      </div>
+      <div class="feature-card">
+        <div class="ftitle"><span class="num">2</span>실내장소 추천</div>
+        <p>기상청 단기예보 API로 비/눈 예보가 있는 야외 일정을 감지해, 대체할 실내 장소를 자동으로 추천하는 팝업을 띄웁니다.</p>
+      </div>
+      <div class="feature-card">
+        <div class="ftitle"><span class="num">3</span>캘린더 일정 관리</div>
+        <p>한국천문연구원 특일 정보 API로 공휴일을 표시하고, 날짜별로 일정을 수정·삭제·추가할 수 있습니다. 위치 기반 관광정보조회 API로 반경 5km 내 장소도 추천합니다.</p>
+      </div>
+      <div class="feature-card">
+        <div class="ftitle"><span class="num">4</span>장소 상세정보 및 체험학습계획</div>
+        <p>국문관광정보 API의 공통정보·소개정보를 활용해 장소 상세 정보를 제공하고, 자녀 나이를 고려한 교외체험학습계획을 ChatGPT API로 생성합니다. 인근 숙박·음식점 정보도 함께 추천합니다.</p>
+      </div>
+      <div class="feature-card">
+        <div class="ftitle"><span class="num">5</span>장소 챗봇</div>
+        <p>장소별 세부 페이지에서 ChatGPT API 기반 챗봇과 실시간 대화하며 자녀와 함께 탐방에 필요한 정보를 얻을 수 있습니다.</p>
+      </div>
+      <div class="feature-card">
+        <div class="ftitle"><span class="num">6</span>교육과정 기반 추천 및 시대별 레벨</div>
+        <p>교육과정 기반 역사 교육 장소 100곳을 추천하고 방문 여부를 표시하며, 선사시대부터 근현대까지 시대별 추천 장소를 레벨 형태로 제공해 방문 동기를 부여합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proj-section">
+  <div class="wrap">
+    <h2>활용 공공데이터</h2>
+    <div class="tag-row">
+      <span class="tag">한국관광공사 · 국문관광정보 서비스</span>
+      <span class="tag">기상청 · 단기예보 조회서비스</span>
+      <span class="tag">한국천문연구원 · 특일 정보</span>
+      <span class="tag">Google Custom Search API</span>
+    </div>
+    <p style="margin-top:14px;">한국관광공사 국문관광정보 API로 관광지·문화시설 정보를 실시간으로 요청해, 기존 CSV 저장 방식 대신 필요한 정보를 즉시 처리하도록 구조를 설계했습니다. 이미지가 없는 장소는 Google Custom Search API로 보완했습니다.</p>
+  </div>
+</section>
+
+<section class="proj-section">
+  <div class="wrap">
+    <h2>서비스 독창성</h2>
+    <p>AI 기반 맞춤형 역사 교육 여행 일정에 실시간 날씨 반영, 가이드 매칭 기능을 결합해 유연하고 차별화된 경험을 제공합니다. '주관식 일정 요청' 기능으로 부모와 자녀가 원하는 대로 일정을 조정할 수 있고, 학교에 제출할 교외 체험학습 보고서 작성까지 AI가 장소별로 도와줍니다.</p>
+  </div>
+</section>
+
+<section class="proj-section">
+  <div class="wrap">
+    <h2>단계별 확장 계획</h2>
+    <ul>
+      <li><strong>1단계 (서울)</strong> — 프롬프트 기반 여행 계획 제공, 지역별·실내장소별 장소 추천, 세부 정보 및 채팅 기능 제공</li>
+      <li><strong>2단계 (서울)</strong> — 전문 해설가 가이드 연결 기능 확장</li>
+      <li><strong>3단계 (전국)</strong> — 다른 사람의 여행 코스 열람, 장소 리뷰 기능 추가</li>
+    </ul>
+  </div>
+</section>
+
+<div class="proj-links">
+  <a href="https://github.com/katekim512/AI-Learning.git" target="_blank">🐙 GitHub Repository</a>
+</div>
+
+</body>
+</html>
