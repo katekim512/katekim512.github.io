@@ -432,6 +432,7 @@
       }
 
       /* Awards */
+      .culture-award{white-space:normal;max-width:100%;}
       .award-row {
         display: flex;
         align-items: center;
@@ -642,7 +643,7 @@
             <div>
               <div class="org" data-i18n="education.konkuk">건국대학교</div>
               <div class="role" data-i18n="education.major">
-                스마트ICT융합공학과 / 응용통계학과
+                컴퓨터공학부 / 응용통계학과
               </div>
             </div>
           </div>
@@ -735,6 +736,14 @@
         <h2 data-i18n="projects.title">프로젝트</h2>
 
         <div class="project-grid">
+          <a class="project-card" href="projects/child-expedition.html">
+            <div class="top-row">
+              <span class="title" data-i18n="projects.expedition.title">아이원정대찾기</span>
+              <span class="award-chip" data-i18n="projects.expedition.award">째각원정대 협업</span>
+            </div>
+            <p class="desc" data-i18n="projects.expedition.desc">1분 놀이 성향 테스트 · 맞춤 체험 추천 · 공유율 23% → 45%</p>
+            <span class="view-more" data-i18n="projects.more">자세히 보기 →</span>
+          </a>
           <a class="project-card" href="projects/log-anomaly-detection.html">
             <div class="top-row">
               <span class="title" data-i18n="projects.log.title"
@@ -744,10 +753,7 @@
                 >연구 및 논문</span
               >
             </div>
-            <p class="desc" data-i18n="projects.log.desc">
-              템플릿 기반 로그 구조화와 임베딩 기법을 결합해 F1-score 기준 약
-              5%p의 이상탐지 성능을 개선했습니다.
-            </p>
+            <p class="desc" data-i18n="projects.log.desc">의미·빈도 복합 임베딩 기반 로그 이상탐지 · LogBERT 성능 개선</p>
             <span class="view-more" data-i18n="projects.more"
               >자세히 보기 →</span
             >
@@ -760,10 +766,7 @@
                 >Epson Challenge 장려상</span
               >
             </div>
-            <p class="desc" data-i18n="projects.bboba.desc">
-              LLM 기반으로 사용자 맞춤 단어카드를 생성하고 Epson 프린터로
-              출력하는 서비스입니다.
-            </p>
+            <p class="desc" data-i18n="projects.bboba.desc">LLM 맞춤 단어 카드 생성 · Epson 프린터 연동</p>
             <span class="view-more" data-i18n="projects.more"
               >자세히 보기 →</span
             >
@@ -776,10 +779,7 @@
                 >사업화 및 배포</span
               >
             </div>
-            <p class="desc" data-i18n="projects.kumap.desc">
-              전공 역량 기반 로드맵 서비스로, 사용자와 운영자 간 요구사항 충돌을
-              데이터 기반으로 해결하고 실제 배포까지 이어졌습니다.
-            </p>
+            <p class="desc" data-i18n="projects.kumap.desc">전공역량 기반 학업 로드맵 · 탐색 단계 67% 축소 · 실제 배포</p>
             <span class="view-more" data-i18n="projects.more"
               >자세히 보기 →</span
             >
@@ -792,10 +792,7 @@
                 >관광데이터 공모전 우수상</span
               >
             </div>
-            <p class="desc" data-i18n="projects.ilearning.desc">
-              AI 기반으로 사용자 맞춤형 역사 교육 여행 일정을 설계해주는
-              서비스입니다.
-            </p>
+            <p class="desc" data-i18n="projects.ilearning.desc">AI 맞춤 역사 교육여행 · 공공 데이터 연동 · 일정 관리</p>
             <span class="view-more" data-i18n="projects.more"
               >자세히 보기 →</span
             >
@@ -813,9 +810,7 @@
                 >메디컬 해커톤 장려상</span
               >
             </div>
-            <p class="desc" data-i18n="projects.llapport.desc">
-              뇌졸중 조기진단을 돕는 서비스입니다.
-            </p>
+            <p class="desc" data-i18n="projects.llapport.desc">뇌졸중 조기진단 지원 서비스</p>
           </a>
 
           <a
@@ -825,17 +820,12 @@
             rel="noopener noreferrer"
           >
             <div class="top-row"><span class="title">Coinicorn</span></div>
-            <p class="desc" data-i18n="projects.coinicorn.desc">
-              해외 가상화폐 뉴스를 번역해주는 서비스입니다.
-            </p>
+            <p class="desc" data-i18n="projects.coinicorn.desc">해외 가상화폐 뉴스 번역</p>
           </a>
 
           <a class="project-card" href="projects/possg.html">
             <div class="top-row"><span class="title">포쓱 (PoSSG)</span></div>
-            <p class="desc" data-i18n="projects.possg.desc">
-              AI 기반 개인 맞춤형 취업 로드맵 서비스로, 활동 자료를 업로드하면
-              포트폴리오와 직무를 자동으로 추천합니다.
-            </p>
+            <p class="desc" data-i18n="projects.possg.desc">AI 포트폴리오 자동 생성 · 맞춤 직무·취업 로드맵 추천</p>
             <span class="view-more" data-i18n="projects.more"
               >자세히 보기 →</span
             >
@@ -845,10 +835,7 @@
             <div class="top-row">
               <span class="title">스토리온 (StoryON)</span>
             </div>
-            <p class="desc" data-i18n="projects.storyon.desc">
-              AR 기술로 아이를 ‘보는 사용자’에서 ‘학습 참여자’로 만드는 능동적
-              동화책 서비스입니다.
-            </p>
+            <p class="desc" data-i18n="projects.storyon.desc">AR 기반 참여형 동화책 · 능동적 학습 경험</p>
             <span class="view-more" data-i18n="projects.more"
               >자세히 보기 →</span
             >
@@ -859,11 +846,9 @@
               <span class="title" data-i18n="projects.culture.title"
                 >불균형을 기회로</span
               >
+              <span class="award-chip culture-award" data-i18n="projects.culture.award">2024 문화체육관광 데이터 활용대회 최우수상</span>
             </div>
-            <p class="desc" data-i18n="projects.culture.desc">
-              문화예술활동 양극화가 심한 전라권을 데이터로 분석하고, 군집별
-              특성에 맞는 정책을 제안한 데이터 분석 프로젝트입니다.
-            </p>
+            <p class="desc" data-i18n="projects.culture.desc">전라권 문화활동 불균형 분석 · 지역 군집화 · 맞춤 정책 제안</p>
             <span class="view-more" data-i18n="projects.more"
               >자세히 보기 →</span
             >
@@ -878,29 +863,58 @@
         <h2 data-i18n="awards.title">수상</h2>
         <div class="card" style="display: block; border-radius: 16px">
           <div class="award-row">
+            <div>
+              <div class="name" data-i18n="awards.capstone">2026 Future X Capstone Design Challenge 최우수상</div>
+              <div class="role" data-i18n="awards.capstone.org">건국대학교 RISE 사업단</div>
+            </div>
+            <div class="when">2026.07.16</div>
+          </div>
+          <div class="award-row">
+            <div>
             <div class="name" data-i18n="awards.one">
-              문화체육관광 데이터 활용대회 최우수상
+              2024 문화체육관광 데이터 활용대회 최우수상
             </div>
-            <div class="when">2024.12</div>
+            <div class="role" data-i18n="awards.one.org">한국문화관광연구원</div>
+            </div>
+            <div class="when">2024.12.05</div>
           </div>
           <div class="award-row">
+            <div>
             <div class="name" data-i18n="awards.two">
-              관광데이터 활용 공모전 우수상
+              2024 관광데이터 활용 공모전 우수상
             </div>
-            <div class="when">2024.11</div>
+            <div class="role" data-i18n="awards.two.org">한국관광공사 × 카카오</div>
+            </div>
+            <div class="when">2024.11.19</div>
           </div>
           <div class="award-row">
+            <div>
             <div class="name" data-i18n="awards.three">
-              Epson Challenge 장려상
+              2024 Epson Challenge 장려상
             </div>
-            <div class="when">2024.06</div>
+            <div class="role" data-i18n="awards.three.org">한국엡손</div>
+            </div>
+            <div class="when">2024.06.29</div>
           </div>
           <div class="award-row">
+            <div>
             <div class="name" data-i18n="awards.four">
-              KU 메디컬 해커톤 장려상
+              2023 KU 메디컬 해커톤 장려상
             </div>
-            <div class="when">2023.10</div>
+            <div class="role" data-i18n="awards.four.org">건국대학교SW중심사업단</div>
+            </div>
+            <div class="when">2023.10.20</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scholarships">
+      <div class="wrap">
+        <div class="eyebrow">Scholarships</div>
+        <h2 data-i18n="scholarships.title">장학금</h2>
+        <div class="card" style="display:block">
+          <div class="name">Konkuk University, 2024 Spring · 2024 Fall</div>
         </div>
       </div>
     </section>
@@ -927,7 +941,7 @@
           'focus.three': '실험 중심 문제 해결',
           'education.title': '학력',
           'education.konkuk': '건국대학교',
-          'education.major': '스마트ICT융합공학과 / 응용통계학과',
+          'education.major': '컴퓨터공학부 / 응용통계학과',
           'education.highschool': '숙명여자고등학교',
           'date.university': '2022.03 — 현재',
           'date.research': '2025.08 — 현재',
@@ -937,36 +951,47 @@
           'experience.member': '팀원',
           'skills.title': '기술 스택',
           'projects.title': '프로젝트',
+          'projects.expedition.title': '아이원정대찾기',
+          'projects.expedition.award': '째각원정대 협업',
+          'projects.expedition.desc': '1분 놀이 성향 테스트 · 맞춤 체험 추천 · 공유율 23% → 45%',
           'projects.log.title': '로그 이상탐지 모델 설계',
           'projects.log.award': '연구 및 논문',
           'projects.log.desc':
-            '템플릿 기반 로그 구조화와 임베딩 기법을 결합해 F1-score 기준 약 5%p의 이상탐지 성능을 개선했습니다.',
+            '의미·빈도 복합 임베딩 기반 로그 이상탐지 · LogBERT 성능 개선',
           'projects.bboba.award': 'Epson Challenge 장려상',
           'projects.bboba.desc':
-            'LLM 기반으로 사용자 맞춤 단어카드를 생성하고 Epson 프린터로 출력하는 서비스입니다.',
+            'LLM 맞춤 단어 카드 생성 · Epson 프린터 연동',
           'projects.kumap.award': '사업화 및 배포',
           'projects.kumap.desc':
-            '전공 역량 기반 로드맵 서비스로, 사용자와 운영자 간 요구사항 충돌을 데이터 기반으로 해결하고 실제 배포까지 이어졌습니다.',
+            '전공역량 기반 학업 로드맵 · 탐색 단계 67% 축소 · 실제 배포',
           'projects.ilearning.award': '관광데이터 공모전 우수상',
           'projects.ilearning.desc':
-            'AI 기반으로 사용자 맞춤형 역사 교육 여행 일정을 설계해주는 서비스입니다.',
+            'AI 맞춤 역사 교육여행 · 공공 데이터 연동 · 일정 관리',
           'projects.llapport.award': '메디컬 해커톤 장려상',
-          'projects.llapport.desc': '뇌졸중 조기진단을 돕는 서비스입니다.',
+          'projects.llapport.desc': '뇌졸중 조기진단 지원 서비스',
           'projects.coinicorn.desc':
-            '해외 가상화폐 뉴스를 번역해주는 서비스입니다.',
+            '해외 가상화폐 뉴스 번역',
           'projects.possg.desc':
-            'AI 기반 개인 맞춤형 취업 로드맵 서비스로, 활동 자료를 업로드하면 포트폴리오와 직무를 자동으로 추천합니다.',
+            'AI 포트폴리오 자동 생성 · 맞춤 직무·취업 로드맵 추천',
           'projects.storyon.desc':
-            'AR 기술로 아이를 ‘보는 사용자’에서 ‘학습 참여자’로 만드는 능동적 동화책 서비스입니다.',
+            'AR 기반 참여형 동화책 · 능동적 학습 경험',
           'projects.culture.title': '불균형을 기회로',
+          'projects.culture.award': '2024 문화체육관광 데이터 활용대회 최우수상',
           'projects.culture.desc':
-            '문화예술활동 양극화가 심한 전라권을 데이터로 분석하고, 군집별 특성에 맞는 정책을 제안한 데이터 분석 프로젝트입니다.',
+            '전라권 문화활동 불균형 분석 · 지역 군집화 · 맞춤 정책 제안',
           'projects.more': '자세히 보기 →',
           'awards.title': '수상',
-          'awards.one': '문화체육관광 데이터 활용대회 최우수상',
-          'awards.two': '관광데이터 활용 공모전 우수상',
-          'awards.three': 'Epson Challenge 장려상',
-          'awards.four': 'KU 메디컬 해커톤 장려상',
+          'awards.capstone': '2026 Future X Capstone Design Challenge 최우수상',
+          'awards.capstone.org': '건국대학교 RISE 사업단',
+          'awards.one': '2024 문화체육관광 데이터 활용대회 최우수상',
+          'awards.one.org': '한국문화관광연구원',
+          'awards.two': '2024 관광데이터 활용 공모전 우수상',
+          'awards.two.org': '한국관광공사 × 카카오',
+          'awards.three': '2024 Epson Challenge 장려상',
+          'awards.three.org': '한국엡손',
+          'awards.four': '2023 KU 메디컬 해커톤 장려상',
+          'awards.four.org': '건국대학교SW중심사업단',
+          'scholarships.title': '장학금',
         },
         en: {
           'nav.label': 'Main navigation',
@@ -987,7 +1012,7 @@
           'education.title': 'Education',
           'education.konkuk': 'Konkuk University',
           'education.major':
-            'Smart ICT Convergence Engineering / Applied Statistics',
+            'Computer Science and Engineering / Applied Statistics',
           'education.highschool': 'Sookmyung Girls’ High School',
           'date.university': 'Mar 2022 — Present',
           'date.research': 'Aug 2025 — Present',
@@ -998,39 +1023,50 @@
           'experience.member': 'Team Member',
           'skills.title': 'Tech Stack',
           'projects.title': 'Projects',
+          'projects.expedition.title': 'Find Your Child’s Expedition',
+          'projects.expedition.award': 'Tictoc Expedition Collaboration',
+          'projects.expedition.desc': 'One-minute play-style quiz · Personalized activities · Share rate 23% → 45%',
           'projects.log.title': 'Log Anomaly Detection Model',
           'projects.log.award': 'Research & Paper',
           'projects.log.desc':
-            'Combined template-based log parsing with embedding techniques to improve anomaly detection performance by approximately 5 percentage points in F1 score.',
+            'Semantic & frequency-aware log embeddings · Improved LogBERT detection',
           'projects.bboba.award': 'Epson Challenge Honorable Mention',
           'projects.bboba.desc':
-            'An LLM-powered service that creates personalized vocabulary cards and prints them using an Epson printer.',
+            'LLM-generated vocabulary cards · Epson printing integration',
           'projects.kumap.award': 'Commercialized & Deployed',
           'projects.kumap.desc':
-            'A competency-based academic roadmap service. Resolved conflicting user and operator requirements through data and carried the product through deployment.',
+            'Competency-based academic roadmaps · 67% fewer navigation steps · Deployed',
           'projects.ilearning.award':
             'Tourism Data Competition Excellence Award',
           'projects.ilearning.desc':
-            'An AI-powered service that creates personalized history-learning travel itineraries.',
+            'AI history-learning trips · Public data integration · Itinerary planning',
           'projects.llapport.award': 'Medical Hackathon Honorable Mention',
           'projects.llapport.desc':
-            'A service designed to support early stroke detection.',
+            'Early stroke detection support',
           'projects.coinicorn.desc':
-            'A service that translates international cryptocurrency news.',
+            'International cryptocurrency news translation',
           'projects.possg.desc':
-            'An AI-powered personalized career roadmap service that recommends portfolios and roles from uploaded activity materials.',
+            'AI portfolio generation · Personalized career and role recommendations',
           'projects.storyon.desc':
-            'An interactive AR storybook that turns children from passive viewers into active learners.',
+            'Interactive AR storybooks · Active learning',
           'projects.culture.title': 'Turning Imbalance into Opportunity',
+          'projects.culture.award': '2024 Culture, Sports & Tourism Data Competition · Top Excellence Award',
           'projects.culture.desc':
-            'A data analysis project that identifies cultural participation gaps in Korea’s Jeolla region and proposes policies tailored to each cluster.',
+            'Cultural participation gap analysis · Regional clustering · Tailored policy proposals',
           'projects.more': 'View details →',
           'awards.title': 'Awards',
+          'awards.capstone': 'Top Excellence Award, 2026 Future X Capstone Design Challenge',
+          'awards.capstone.org': 'Konkuk University RISE Project Group',
+          'awards.one.org': 'Korea Culture & Tourism Institute',
+          'awards.two.org': 'Korea Tourism Organization × Kakao',
+          'scholarships.title': 'Scholarships',
           'awards.one':
-            'Grand Prize, Culture & Tourism Data Utilization Competition',
-          'awards.two': 'Excellence Award, Tourism Data Competition',
-          'awards.three': 'Honorable Mention, Epson Challenge',
-          'awards.four': 'Honorable Mention, KU Medical Hackathon',
+            'Top Excellence Award, 2024 Culture, Sports & Tourism Data Utilization Competition',
+          'awards.two': 'Excellence Award, 2024 Tourism Data Competition',
+          'awards.three': 'Honorable Mention, 2024 Epson Challenge',
+          'awards.three.org': 'Epson Korea',
+          'awards.four': 'Honorable Mention, 2023 KU Medical Hackathon',
+          'awards.four.org': 'Konkuk University SW-Centered University Project Group',
         },
       }
 

@@ -31,11 +31,11 @@
           <h1>
             의미·빈도 정보를 반영한<br />로그 복합 임베딩 기반 이상 탐지 기법
           </h1>
-          <p class="subtitle">
-            로그 메시지의 세부 의미와 발생 빈도를 함께 반영하는 새로운 임베딩
-            방식을 제안하여, LogBERT 기반 이상 탐지 성능을 향상시킨 연구입니다.
-            국방과학연구소·LIG넥스원과의 협업으로 수행되었습니다.
-          </p>
+          <div class="research-document-links">
+            <a href="documents/log-anomaly-detection/paper.pdf" target="_blank" rel="noopener noreferrer">논문 보기 ↗</a>
+            <a href="documents/log-anomaly-detection/poster.pdf" target="_blank" rel="noopener noreferrer">포스터 보기 ↗</a>
+          </div>
+          <p class="subtitle">의미·빈도 기반 복합 임베딩 설계 · LogBERT 이상 탐지 성능 개선 · 국방과학연구소·LIG넥스원 공동연구</p>
           <div class="meta-row">
             <span class="meta-chip">제1저자 (Co-first Author)</span>
             <span class="meta-chip">2026</span>
@@ -45,154 +45,29 @@
         </div>
         <img
           class="log-hero-image"
-          src="images/log-anomaly-hero.jpeg"
+          src="images/log-anomaly-detection/log-anomaly-hero.jpeg"
           alt="로그 이상탐지 논문 포스터 발표 현장"
         />
       </div>
     </header>
 
-    <section class="proj-section">
-      <div class="wrap">
-        <h2>배경</h2>
-        <p>
-          대규모 분산 시스템에서 발생하는 로그 데이터를 분석해 결함을 감지하는
-          로그 기반 이상 탐지는 시스템 안정성 확보를 위한 핵심 기술입니다.
-          LogBERT와 같은 Transformer 기반 모델들은 로그 시퀀스의 양방향 문맥을
-          학습해 정교한 이상 징후 포착 능력을 보여주었지만, 로그가 지닌 다양한
-          정보 요소를 충분히 반영하지 못한다는 한계가 있었습니다.
-        </p>
-        <p>
-          구체적으로, 기존 방법은 Drain과 같은 파서를 통해 원시 로그를 이벤트
-          템플릿으로 변환한 뒤 시퀀스로 입력합니다. 이 과정에서 로그 메시지
-          내부의 파라미터·경로·수치 등 세부 정보가 손실되고, 이벤트는 무작위
-          임베딩으로 표현되어 의미적으로 유사한 로그 간의 관계를 반영하지
-          못합니다. 또한 이벤트 순서 패턴에만 의존하기 때문에, 특정 이벤트가
-          단시간 내 비정상적으로 급증하는
-          <strong>로그 폭풍(Log Storm)</strong>과 같은 양적 이상 패턴을 포착하기
-          어렵다는 문제가 있었습니다.
-        </p>
-      </div>
-    </section>
-
-    <section class="proj-section">
-      <div class="wrap">
-        <h2>문제와 개선</h2>
-        <div class="compare-grid">
-          <div class="compare-card before">
-            <span class="tag">Before</span>
-            <p>
-              파서로 추출한 이벤트 템플릿만 활용해 세부 파라미터 정보 손실,
-              무작위 초기화 임베딩으로 의미적 관계 미반영, 로그 발생 빈도 같은
-              양적 변화 포착 어려움
-            </p>
-          </div>
-          <div class="compare-card after">
-            <span class="tag">After</span>
-            <p>
-              원시 로그의 세부 의미·이벤트 템플릿의 거시적 의미·발생 빈도의 양적
-              변화를 각각 임베딩한 뒤 결합하여 LogBERT에 입력, 의미·빈도 정보를
-              모두 반영한 이상 탐지 가능
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="proj-section">
-      <div class="wrap">
-        <h2>제안 방법: 세 가지 관점의 임베딩</h2>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="ftitle">
-              <span class="num">1</span>Semantic ID Embedding
-            </div>
-            <p>
-              원시 로그 텍스트 전체를 Sentence-BERT로 인코딩한 뒤 계층적 잔차
-              양자화(Residual Quantization)를 적용해 이산화된 Semantic ID를
-              생성합니다. 파서가 제거했던 세부 파라미터·상태 변화 정보를 벡터
-              공간에 보존하는 Fine-grained Semantics 관점입니다.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="ftitle">
-              <span class="num">2</span>Event Template Embedding
-            </div>
-            <p>
-              파서로 추출한 이벤트 템플릿을 Sentence-BERT로 임베딩해 무작위
-              초기화 대신 의미적 상관관계를 수치화합니다. 로그 시퀀스의 거시적
-              흐름과 문맥적 의미를 파악하는 Coarse-grained Semantics 관점입니다.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="ftitle">
-              <span class="num">3</span>Frequency Embedding
-            </div>
-            <p>
-              RLE(Run-Length Encoding)로 동일 이벤트의 연속 발생 횟수를 추출하고
-              MLP로 학습 가능한 벡터로 변환합니다. 로그 폭풍처럼 단시간 내
-              급증하는 양적 이상 패턴을 반영하는 Frequency Dynamics 관점입니다.
-            </p>
-          </div>
-        </div>
-        <p style="margin-top: 16px">
-          세 임베딩은 동일한 차원으로 구성되어 원소별 덧셈(Element-wise
-          Addition)으로 결합되며, 차원 팽창 없이 서로 다른 관점의 정보를 하나의
-          벡터에 중첩시켜 LogBERT에 입력합니다.
-        </p>
-      </div>
-    </section>
-
-    <section class="proj-section">
-      <div class="wrap">
-        <h2>실험 결과</h2>
-        <div class="stat-row">
-          <div class="stat-card">
-            <div class="num">+20.8</div>
-            <div class="label">BGL F1-score 향상 (40.997 → 61.797)</div>
-          </div>
-          <div class="stat-card">
-            <div class="num">90.393</div>
-            <div class="label">TBird F1-score (제안 방법, 최고 성능)</div>
-          </div>
-          <div class="stat-card">
-            <div class="num">+14.4</div>
-            <div class="label">Frequency Embedding 추가 시 BGL 성능 향상</div>
-          </div>
-          <div class="stat-card">
-            <div class="num">3</div>
-            <div class="label">벤치마크 데이터셋 검증 (HDFS·BGL·TBird)</div>
-          </div>
-        </div>
-        <p style="margin-top: 16px">
-          세 가지 임베딩을 모두 결합한 제안 방법은 BGL·TBird 데이터셋에서 가장
-          우수한 성능을 보였습니다. 특히 BGL 데이터셋은 기존 랜덤 임베딩
-          baseline 대비 약 20 이상의 F1-score 향상을 기록했는데, 이는 로그의
-          의미 정보와 양적 변화를 동시에 고려하는 전략이 정밀한 이상 탐지를
-          효과적으로 유도했음을 보여줍니다. 로그 폭풍이 빈번한 BGL 환경에서는
-          Frequency Embedding의 기여도가 두드러졌고, 원시 로그의 세부 의미를
-          보존하는 Semantic ID Embedding은 대부분의 데이터셋에서 최종 성능을 한
-          단계 끌어올렸습니다.
-        </p>
-        <p style="margin-top: 12px">
-          반면 템플릿 종류가 20개에 불과할 만큼 구조가 매우 정형화된 HDFS
-          데이터셋에서는 Event Template Embedding만으로도 충분한 성능(79.223)을
-          보여, 데이터셋의 로그 다양성에 따라 각 임베딩의 기여도가 달라진다는
-          점도 함께 확인했습니다.
-        </p>
-      </div>
-    </section>
-
+<section class="proj-section"><div class="wrap"><div class="case-stage">BACKGROUND</div><h2>연구 배경과 기존 방법의 한계</h2><ul><li><strong>연구 목적:</strong> 대규모 시스템 로그에서 이상 징후를 감지해 안정적인 운영 지원</li><li><strong>DeepLog:</strong> LSTM을 활용한 로그의 순차 흐름 학습</li><li><strong>LogBERT:</strong> Drain으로 로그를 템플릿화한 후 Transformer로 문맥 학습</li><li><strong>정보 손실:</strong> 템플릿화 과정에서 파라미터·경로·수치 등 세부 정보 제거</li><li><strong>의미 표현의 한계:</strong> 랜덤 임베딩만으로 유사 로그 간 의미적 관계 반영 어려움</li><li><strong>빈도 정보 부재:</strong> 특정 이벤트가 급증하는 로그 폭풍(Log Storm) 포착에 한계</li></ul></div></section>
+<section class="proj-section"><div class="wrap"><div class="case-stage">CONTRIBUTION</div><h2>의미와 발생 빈도를 함께 반영하는 복합 임베딩</h2><ul><li><strong>Event Template:</strong> 로그 시퀀스의 거시적 의미</li><li><strong>Semantic ID:</strong> 원시 로그의 세부 의미</li><li><strong>Frequency:</strong> 이벤트 발생 빈도의 양적 변화</li><li>세 관점을 독립적으로 임베딩하고 결합해 기존 랜덤 임베딩의 한계 보완</li><li>HDFS·BGL·TBird에서 성능 및 데이터셋별 임베딩 기여도 검증</li></ul><figure class="case-figure"><a href="images/log-anomaly-detection/embedding-comparison.png" target="_blank" rel="noopener"><img src="images/log-anomaly-detection/embedding-comparison.png" alt="랜덤 임베딩과 의미·빈도 기반 복합 임베딩 비교" loading="lazy"></a><figcaption>랜덤 임베딩과 의미·빈도 기반 복합 임베딩 비교</figcaption></figure></div></section>
+<section class="proj-section"><div class="wrap"><div class="case-stage">PROPOSED METHOD</div><h2>세 가지 임베딩과 결합 구조</h2><figure class="case-figure"><a href="images/log-anomaly-detection/architecture.png" target="_blank" rel="noopener"><img src="images/log-anomaly-detection/architecture.png" alt="Event Template · Frequency · Semantic ID → Embedding Fusion → LogBERT" loading="lazy"></a><figcaption>Event Template · Frequency · Semantic ID → Embedding Fusion → LogBERT</figcaption></figure><h3 class="case-subheading">01 · Event Template Embedding</h3><ul><li>Drain으로 추출한 이벤트 템플릿을 Sentence-BERT로 인코딩</li><li>의미가 유사한 템플릿 사이의 상관관계를 벡터로 표현</li><li>로그 시퀀스의 거시적 흐름과 문맥적 의미 전달</li></ul><h3 class="case-subheading">02 · Frequency Embedding</h3><ul><li>RLE(Run-Length Encoding)로 동일 이벤트의 연속 발생 횟수 추출</li><li>예: [1, 1, 2, 2, 3] → [2, 2, 2, 2, 1]</li><li>MLP로 학습 가능한 벡터로 변환해 로그 폭풍과 같은 양적 이상 패턴 반영</li></ul><h3 class="case-subheading">03 · Semantic ID Embedding</h3><ul><li>원시 로그 전체를 Sentence-BERT로 인코딩</li><li>계층적 잔차 양자화와 코드북으로 이산 Semantic ID 생성</li><li>각 단계에서 가까운 코드북 벡터의 인덱스를 순차 할당</li><li>Semantic ID를 MLP로 변환해 파서가 제거한 세부 정보 보존</li></ul><h3 class="case-subheading">04 · Embedding Fusion</h3><ul><li>세 임베딩을 동일한 차원으로 구성</li><li>원소별 덧셈(Element-wise Addition)으로 결합</li><li>차원 팽창 없이 단일 벡터에 정보를 중첩한 뒤 LogBERT에 입력</li></ul></div></section>
+<section class="proj-section"><div class="wrap"><div class="case-stage">MY ROLE</div><h2>담당 역할</h2><ul><li><strong>방법론 설계:</strong> 의미·빈도 정보를 함께 반영하는 임베딩 구성과 결합 방식 제안</li><li><strong>실험:</strong> HDFS·BGL·TBird 벤치마크 검증 및 임베딩 조합 비교</li><li><strong>협업:</strong> 국방과학연구소·LIG넥스원 공동연구</li></ul></div></section>
+<section class="proj-section"><div class="wrap"><div class="case-stage">EXPERIMENTS</div><h2>실험 결과와 데이터셋별 차이</h2><figure class="case-figure"><a href="images/log-anomaly-detection/experiment-results.png" target="_blank" rel="noopener"><img src="images/log-anomaly-detection/experiment-results.png" alt="임베딩 조합별 F1-score · vₛ: Semantic ID, vₑ: Event Template, vᶠ: Frequency" loading="lazy"></a><figcaption>임베딩 조합별 F1-score · vₛ: Semantic ID, vₑ: Event Template, vᶠ: Frequency</figcaption></figure><ul><li><strong>BGL:</strong> Baseline 40.997 → 제안 방식 61.797, <strong>20.800p 향상</strong></li><li><strong>TBird:</strong> Baseline 87.790 → 제안 방식 90.393, <strong>2.603p 향상</strong></li><li><strong>HDFS:</strong> Event Template 단독 사용 시 79.223으로 최고 성능; 제안 방식은 77.037</li><li><strong>Frequency 단독 추가:</strong> BGL 40.997 → 55.393, 약 14.4p 향상</li></ul><figure class="case-figure"><a href="images/log-anomaly-detection/logs-per-template.png" target="_blank" rel="noopener"><img src="images/log-anomaly-detection/logs-per-template.png" alt="템플릿당 로그 수 비교 · 로그 스케일" loading="lazy"></a><figcaption>템플릿당 로그 수 비교 · 로그 스케일</figcaption></figure><aside class="case-insight"><div class="case-insight-label">분석 인사이트</div><ul><li><strong>로그 폭풍 환경에서는 빈도 정보가 중요:</strong> BGL에서 Frequency Embedding의 기여 확인</li><li><strong>세부 의미 보존의 효과:</strong> Semantic ID를 추가한 최종 조합이 BGL·TBird에서 최고 성능</li><li><strong>복합 임베딩이 항상 최선은 아님:</strong> 구조가 정형화된 HDFS는 Event Template만으로 높은 성능</li><li><strong>데이터셋 특성에 맞춘 설계 필요:</strong> 로그 다양성과 반복 패턴에 따라 임베딩 기여도 차이 발생</li></ul></aside></div></section>
+<section class="proj-section"><div class="wrap"><div class="case-stage">FUTURE WORK</div><h2>향후 연구 방향</h2><ul><li>데이터셋 특성에 따라 각 임베딩의 기여도를 동적으로 조절</li><li>다양한 로그 환경으로 적용 범위 확장</li><li>실제 운영 환경에서 일반화 성능 검증</li></ul></div></section>
     <section class="proj-section">
       <div class="wrap">
         <h2>발표 현장</h2>
         <div class="presentation-photo-grid">
           <img
-            src="images/log-anomaly-presentation-1.jpeg"
+            src="images/log-anomaly-detection/log-anomaly-presentation-1.jpeg"
             alt="로그 이상탐지 연구 내용을 설명하는 모습"
             loading="lazy"
           />
           <img
-            src="images/log-anomaly-presentation-2.jpeg"
+            src="images/log-anomaly-detection/log-anomaly-presentation-2.jpeg"
             alt="로그 이상탐지 논문 포스터 발표 모습"
             loading="lazy"
           />
