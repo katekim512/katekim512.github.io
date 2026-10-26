@@ -1,565 +1,1112 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yeeun Kim</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#FFFFFF;
-    --ink:#0F172A;
-    --ink-soft:#64748B;
-    --accent:#2563EB;
-    --accent-soft:#EFF4FF;
-    --pill-bg:#F1F5F9;
-    --line:#E2E8F0;
-    --sans:'Plus Jakarta Sans', -apple-system, sans-serif;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yeeun Kim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --ink: #0f172a;
+        --ink-soft: #64748b;
+        --accent: #2563eb;
+        --accent-soft: #eff4ff;
+        --pill-bg: #f1f5f9;
+        --line: #e2e8f0;
+        --sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      }
 
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
 
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--sans);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
 
-  a{color:var(--accent);text-decoration:none;}
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
 
-  .wrap{
-    max-width:980px;
-    margin:0 auto;
-    padding:0 32px;
-  }
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
 
-  /* ---------- NAV ---------- */
-  .navbar{
-    position:sticky;
-    top:0;
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-    z-index:50;
-  }
-  .navbar .wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:68px;
-  }
-  .navbar .brand{
-    font-weight:800;
-    font-size:16px;
-    color:var(--ink);
-  }
-  .navbar nav{
-    display:flex;
-    gap:28px;
-  }
-  .navbar nav a{
-    font-size:14px;
-    font-weight:500;
-    color:var(--ink-soft);
-  }
-  .navbar nav a:hover{color:var(--ink);}
+      /* ---------- NAV ---------- */
+      .navbar {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+        z-index: 50;
+      }
+      .navbar .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+      }
+      .navbar .brand {
+        font-weight: 800;
+        font-size: 16px;
+        color: var(--ink);
+      }
+      .navbar nav {
+        display: flex;
+        gap: 28px;
+      }
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .navbar nav a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink-soft);
+      }
+      .navbar nav a:hover {
+        color: var(--ink);
+      }
 
-  .navbar .mobile-toggle{display:none;}
+      .language-toggle {
+        display: flex;
+        align-items: center;
+        padding: 3px;
+        background: var(--pill-bg);
+        border-radius: 999px;
+      }
+      .language-toggle button {
+        min-width: 38px;
+        padding: 6px 9px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--ink-soft);
+        font: 600 12px/1 var(--sans);
+        cursor: pointer;
+      }
+      .language-toggle button[aria-pressed='true'] {
+        background: #fff;
+        color: var(--accent);
+        box-shadow: 0 1px 4px rgba(15, 23, 42, 0.12);
+      }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    padding:88px 0 64px;
-  }
-  .hero-grid{
-    display:flex;
-    align-items:center;
-    gap:56px;
-  }
-  .hero-text{flex:1;}
+      /* ---------- HERO ---------- */
+      .hero {
+        padding: 88px 0 64px;
+      }
+      .hero-grid {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .hero-text {
+        flex: 1;
+      }
 
-  .badge{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    background:var(--accent-soft);
-    color:var(--accent);
-    font-size:13px;
-    font-weight:600;
-    padding:6px 14px;
-    border-radius:999px;
-    margin-bottom:20px;
-  }
-  .badge .dot{
-    width:7px;height:7px;border-radius:50%;
-    background:#22C55E;
-  }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 999px;
+        margin-bottom: 20px;
+      }
+      .badge .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #22c55e;
+      }
 
-  .hero h1{
-    font-size:46px;
-    font-weight:800;
-    letter-spacing:-0.02em;
-    margin-bottom:6px;
-  }
-  .hero .kr{
-    font-size:16px;
-    color:var(--ink-soft);
-    font-weight:500;
-    margin-bottom:20px;
-  }
-  .hero p.lede{
-    font-size:16px;
-    color:var(--ink-soft);
-    max-width:480px;
-    margin-bottom:28px;
-  }
-  .hero p.lede a{color:var(--ink);font-weight:600;border-bottom:1px solid var(--line);}
-  .hero p.lede a:hover{border-color:var(--accent);color:var(--accent);}
+      .hero h1 {
+        font-size: 46px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 6px;
+      }
+      .hero .kr {
+        font-size: 16px;
+        color: var(--ink-soft);
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .hero p.lede {
+        font-size: 16px;
+        color: var(--ink-soft);
+        max-width: 600px;
+        margin-bottom: 28px;
+      }
+      .hero p.lede a {
+        color: var(--ink);
+        font-weight: 600;
+        border-bottom: 1px solid var(--line);
+      }
+      .hero p.lede a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
 
-  .pill-links{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-  }
-  .pill-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:var(--pill-bg);
-    color:var(--ink);
-    font-size:14px;
-    font-weight:600;
-    padding:10px 18px;
-    border-radius:999px;
-    border:1px solid transparent;
-    transition:all .15s ease;
-  }
-  .pill-btn:hover{
-    background:var(--accent-soft);
-    color:var(--accent);
-    transform:translateY(-1px);
-  }
+      .pill-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .pill-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--pill-bg);
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        transition: all 0.15s ease;
+      }
+      .pill-btn:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        transform: translateY(-1px);
+      }
 
-  .avatar-wrap{
-    flex-shrink:0;
-    width:200px;
-    height:200px;
-    border-radius:50%;
-    background:linear-gradient(160deg,#DCE8FF,#F1F5F9);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .avatar-wrap .initials{
-    width:172px;
-    height:172px;
-    border-radius:50%;
-    background:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:52px;
-    font-weight:800;
-    color:var(--accent);
-    box-shadow:0 8px 24px rgba(37,99,235,0.12);
-  }
+      .avatar-wrap {
+        flex-shrink: 0;
+        width: 200px;
+        aspect-ratio: 3 / 4;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      }
+      .avatar-wrap .avatar-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 13px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 52px;
+        font-weight: 800;
+        color: var(--accent);
+        overflow: hidden;
+      }
+      .avatar-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+      .avatar-wrap img[hidden] {
+        display: none;
+      }
+      .avatar-wrap .initials[hidden] {
+        display: none;
+      }
+      .avatar-wrap .initials {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-  /* ---------- SECTIONS ---------- */
-  section{
-    padding:48px 0;
-    border-top:1px solid var(--line);
-    scroll-margin-top:84px;
-  }
-  section .eyebrow{
-    font-size:12.5px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    color:var(--accent);
-    margin-bottom:10px;
-  }
-  section h2{
-    font-size:26px;
-    font-weight:800;
-    letter-spacing:-0.01em;
-    margin-bottom:28px;
-  }
+      /* ---------- SECTIONS ---------- */
+      section {
+        padding: 48px 0;
+        border-top: 1px solid var(--line);
+        scroll-margin-top: 84px;
+      }
+      section .eyebrow {
+        font-size: 12.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+        margin-bottom: 10px;
+      }
+      section h2 {
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        margin-bottom: 28px;
+      }
 
-  /* Focus pills (research interests style) */
-  .focus-pills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-  }
-  .focus-pill{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:var(--pill-bg);
-    border-radius:999px;
-    padding:12px 20px;
-    font-size:14.5px;
-    font-weight:600;
-    color:var(--ink);
-  }
-  .focus-pill .ico{font-size:17px;}
+      /* Focus pills (research interests style) */
+      .focus-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .focus-pill {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--pill-bg);
+        border-radius: 999px;
+        padding: 12px 20px;
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .focus-pill .ico {
+        font-size: 17px;
+      }
 
-  /* Cards for education / experience */
-  .card-list{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-  .card{
-    display:grid;
-    grid-template-columns:140px 1fr;
-    gap:20px;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:22px 24px;
-    transition:box-shadow .15s ease, border-color .15s ease;
-  }
-  .card:hover{
-    box-shadow:0 8px 24px rgba(15,23,42,0.06);
-    border-color:#D6DEEA;
-  }
-  .card .when{
-    font-size:13px;
-    font-weight:600;
-    color:var(--ink-soft);
-    padding-top:2px;
-  }
-  .card .org{
-    font-size:16.5px;
-    font-weight:700;
-    margin-bottom:3px;
-  }
-  .card .role{
-    font-size:14px;
-    color:var(--ink-soft);
-  }
+      /* Cards for education / experience */
+      .card-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .card {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 20px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 22px 24px;
+        transition: box-shadow 0.15s ease, border-color 0.15s ease;
+      }
+      .card:hover {
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+        border-color: #d6deea;
+      }
+      .card .when {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink-soft);
+        padding-top: 2px;
+      }
+      .card .org {
+        font-size: 16.5px;
+        font-weight: 700;
+        margin-bottom: 3px;
+      }
+      .card .role {
+        font-size: 14px;
+        color: var(--ink-soft);
+      }
+      .experience-main {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .experience-logo {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+      }
+      .experience-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
 
-  /* Skills */
-  .skill-block{margin-bottom:18px;}
-  .skill-block:last-child{margin-bottom:0;}
-  .skill-block .cat{
-    font-size:12.5px;
-    font-weight:700;
-    color:var(--ink-soft);
-    text-transform:uppercase;
-    letter-spacing:.05em;
-    margin-bottom:10px;
-  }
-  .tag-row{display:flex;flex-wrap:wrap;gap:8px;}
-  .tag{
-    font-size:13.5px;
-    font-weight:600;
-    background:var(--pill-bg);
-    border-radius:999px;
-    padding:7px 14px;
-  }
+      /* Skills */
+      .skill-block {
+        margin-bottom: 18px;
+      }
+      .skill-block:last-child {
+        margin-bottom: 0;
+      }
+      .skill-block .cat {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--ink-soft);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tag {
+        font-size: 13.5px;
+        font-weight: 600;
+        background: var(--pill-bg);
+        border-radius: 999px;
+        padding: 7px 14px;
+      }
 
-  /* Projects */
-  .project-card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:24px;
-    margin-bottom:14px;
-    transition:box-shadow .15s ease, border-color .15s ease, transform .15s ease;
-  }
-  .project-card:hover{
-    box-shadow:0 10px 28px rgba(15,23,42,0.07);
-    border-color:#D6DEEA;
-    transform:translateY(-2px);
-  }
-  .project-card .top-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:8px;
-    flex-wrap:wrap;
-  }
-  .project-card .top-row a.title{
-    font-size:17.5px;
-    font-weight:700;
-    color:var(--ink);
-  }
-  .project-card .top-row a.title:hover{color:var(--accent);}
-  .award-chip{
-    font-size:12px;
-    font-weight:700;
-    background:var(--accent-soft);
-    color:var(--accent);
-    padding:5px 12px;
-    border-radius:999px;
-    white-space:nowrap;
-  }
-  .project-card .desc{
-    font-size:14.5px;
-    color:var(--ink-soft);
-    max-width:640px;
-  }
+      /* Projects */
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 0;
+        transition: box-shadow 0.15s ease, border-color 0.15s ease,
+          transform 0.15s ease;
+      }
+      .project-card:hover {
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+        border-color: #d6deea;
+        transform: translateY(-2px);
+      }
+      .project-card .top-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 8px;
+        flex-wrap: wrap;
+      }
+      .project-card .top-row .title {
+        font-size: 17.5px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .project-card:hover .top-row .title {
+        color: var(--accent);
+      }
+      .award-chip {
+        font-size: 12px;
+        font-weight: 700;
+        background: var(--accent-soft);
+        color: var(--accent);
+        padding: 5px 12px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      .project-card .desc {
+        flex: 1;
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        max-width: 640px;
+      }
+      .view-more {
+        display: inline-block;
+        margin-top: 14px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+      }
 
-  /* Awards */
-  .award-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:18px 4px;
-    border-bottom:1px solid var(--line);
-  }
-  .award-row:last-child{border-bottom:none;}
-  .award-row .name{font-size:15px;font-weight:600;}
-  .award-row .when{font-size:13px;color:var(--ink-soft);font-weight:600;}
+      /* Awards */
+      .culture-award{white-space:normal;max-width:100%;}
+      .award-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 4px;
+        border-bottom: 1px solid var(--line);
+      }
+      .award-row:last-child {
+        border-bottom: none;
+      }
+      .award-row .name {
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .award-row .when {
+        font-size: 13px;
+        color: var(--ink-soft);
+        font-weight: 600;
+      }
 
-  footer{
-    padding:40px 0 56px;
-    text-align:center;
-    font-size:13px;
-    color:var(--ink-soft);
-  }
+      footer {
+        padding: 40px 0 56px;
+        text-align: center;
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
 
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width:760px){
-    .navbar nav{display:none;}
-    .wrap{padding:0 20px;}
-    .hero{padding:48px 0 40px;}
-    .hero-grid{flex-direction:column-reverse;gap:32px;text-align:center;}
-    .hero-text{display:flex;flex-direction:column;align-items:center;}
-    .hero p.lede{text-align:center;}
-    .pill-links{justify-content:center;}
-    .hero h1{font-size:34px;}
-    .avatar-wrap{width:140px;height:140px;}
-    .avatar-wrap .initials{width:120px;height:120px;font-size:38px;}
-    .card{grid-template-columns:1fr;gap:6px;}
-    .award-row{flex-direction:column;align-items:flex-start;gap:4px;}
-  }
+      /* ---------- RESPONSIVE ---------- */
+      @media (max-width: 760px) {
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+        .navbar nav {
+          display: none;
+        }
+        .nav-actions {
+          gap: 0;
+        }
+        .wrap {
+          padding: 0 20px;
+        }
+        .hero {
+          padding: 48px 0 40px;
+        }
+        .hero-grid {
+          flex-direction: column-reverse;
+          gap: 16px;
+          text-align: center;
+        }
+        .hero-text {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .hero p.lede {
+          text-align: center;
+        }
+        .pill-links {
+          justify-content: center;
+        }
+        .hero h1 {
+          font-size: 34px;
+        }
+        .avatar-wrap {
+          width: 150px;
+        }
+        .avatar-wrap .avatar-inner {
+          font-size: 38px;
+        }
+        .card {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+        .award-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+        }
+      }
 
-  @media (prefers-reduced-motion: reduce){
-    *{transition:none !important; scroll-behavior:auto !important;}
-  }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
 
-  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
-</style>
-</head>
-<body>
-
-<div class="navbar">
-  <div class="wrap">
-    <div class="brand">Yeeun Kim</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#awards">Awards</a>
-    </nav>
-  </div>
-</div>
-
-<header class="hero" id="about">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="badge"><span class="dot"></span> ML Engineer · Konkuk University</div>
-        <h1>Yeeun Kim</h1>
-        <div class="kr">김예은</div>
-        <p class="lede">데이터로 문제를 정의하고, 머신러닝과 LLM으로 실제 서비스 개선까지 연결합니다. 현재 <a href="#" target="_blank">건국대학교</a>에서 공부하며, <a href="#" target="_blank">Graph &amp; Language Intelligence Lab</a>에서 학부연구생으로 활동하고 있습니다.</p>
-        <div class="pill-links">
-          <a class="pill-btn" href="mailto:yeeunkim512@gmail.com">✉️ Email</a>
-          <a class="pill-btn" href="https://github.com/katekim512" target="_blank">🐙 GitHub</a>
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="wrap">
+        <div class="brand">Yeeun Kim</div>
+        <div class="nav-actions">
+          <nav aria-label="주요 메뉴" data-i18n-aria-label="nav.label">
+            <a href="#about" data-i18n="nav.about">소개</a>
+            <a href="#education" data-i18n="nav.education">학력</a>
+            <a href="#experience" data-i18n="nav.experience">경력</a>
+            <a href="#skills" data-i18n="nav.skills">기술</a>
+            <a href="#projects" data-i18n="nav.projects">프로젝트</a>
+            <a href="#awards" data-i18n="nav.awards">수상</a>
+          </nav>
+          <div class="language-toggle" role="group" aria-label="언어 선택">
+            <button type="button" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" data-lang="en" aria-pressed="false">
+              EN
+            </button>
+          </div>
         </div>
       </div>
-      <div class="avatar-wrap">
-        <div class="initials">YK</div>
-      </div>
     </div>
-  </div>
-</header>
 
-<section id="focus">
-  <div class="wrap">
-    <div class="eyebrow">Focus Areas</div>
-    <h2>지금 집중하는 것</h2>
-    <div class="focus-pills">
-      <div class="focus-pill"><span class="ico">🤖</span> LLM 기반 개인화 서비스 설계</div>
-      <div class="focus-pill"><span class="ico">📊</span> 사용자 데이터 기반 의사결정</div>
-      <div class="focus-pill"><span class="ico">🧪</span> 실험 중심 문제 해결</div>
-    </div>
-  </div>
-</section>
-
-<section id="education">
-  <div class="wrap">
-    <div class="eyebrow">Education</div>
-    <h2>학력</h2>
-    <div class="card-list">
-      <div class="card">
-        <div class="when">2022.03 — ing</div>
-        <div>
-          <div class="org">건국대학교</div>
-          <div class="role">스마트ICT융합공학과 / 응용통계학과</div>
+    <header class="hero" id="about">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <div class="badge">
+              <span class="dot"></span
+              ><span data-i18n="hero.badge">ML 엔지니어 · 건국대학교</span>
+            </div>
+            <h1>Yeeun Kim</h1>
+            <div class="kr">김예은</div>
+            <p class="lede" data-i18n-html="hero.lede">
+              안녕하세요! 현재
+              <a
+                href="https://sicte.konkuk.ac.kr/sicte/index.do"
+                target="_blank"
+                rel="noopener noreferrer"
+                >건국대학교 스마트ICT융합공학과</a
+              >
+              학부생입니다. 현재
+              <a
+                href="https://bkoh509.github.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >오병국 교수님</a
+              >의 지도를 받아 건국대학교
+              <a
+                href="https://gli.konkuk.ac.kr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Graph &amp; Language Intelligence Lab</a
+              >에서 학부연구생으로 활동하고 있습니다.
+            </p>
+            <div class="pill-links">
+              <a class="pill-btn" href="mailto:yeeunkim512@gmail.com"
+                >✉️ Email</a
+              >
+              <a
+                class="pill-btn"
+                href="https://github.com/katekim512"
+                target="_blank"
+                >🐙 GitHub</a
+              >
+            </div>
+          </div>
+          <div
+            class="avatar-wrap"
+            aria-label="김예은 프로필 사진"
+            data-i18n-aria-label="hero.photo"
+          >
+            <div class="avatar-inner">
+              <img
+                src="./profile.jpg"
+                alt="Yeeun Kim"
+                onload="this.hidden=false;this.nextElementSibling.hidden=true"
+                onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+                hidden
+              />
+              <div class="initials">YK</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <div class="when">2019.03 — 2022.02</div>
-        <div>
-          <div class="org">숙명여자고등학교</div>
+    </header>
+
+    <section id="focus">
+      <div class="wrap">
+        <div class="eyebrow">Focus Areas</div>
+        <div class="focus-pills">
+          <div class="focus-pill">
+            <span class="ico">🤖</span
+            ><span data-i18n="focus.one">LLM 기반 개인화 서비스 설계</span>
+          </div>
+          <div class="focus-pill">
+            <span class="ico">📊</span
+            ><span data-i18n="focus.two">사용자 데이터 기반 의사결정</span>
+          </div>
+          <div class="focus-pill">
+            <span class="ico">🧪</span
+            ><span data-i18n="focus.three">실험 중심 문제 해결</span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="experience">
-  <div class="wrap">
-    <div class="eyebrow">Experience</div>
-    <h2>경력</h2>
-    <div class="card-list">
-      <div class="card">
-        <div class="when">2025.08 — ing</div>
-        <div>
-          <div class="org">Graph &amp; Language Intelligence Lab</div>
-          <div class="role">건국대학교 · 학부연구생</div>
+    <section id="education">
+      <div class="wrap">
+        <div class="eyebrow">Education</div>
+        <h2 data-i18n="education.title">학력</h2>
+        <div class="card-list">
+          <div class="card">
+            <div class="when" data-i18n="date.university">2022.03 — 현재</div>
+            <div>
+              <div class="org" data-i18n="education.konkuk">건국대학교</div>
+              <div class="role" data-i18n="education.major">
+                컴퓨터공학부 / 응용통계학과
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="when">2019.03 — 2022.02</div>
+            <div>
+              <div class="org" data-i18n="education.highschool">
+                숙명여자고등학교
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <div class="when">2024.06 — 2024.12</div>
-        <div>
-          <div class="org">건국대 학생개발팀</div>
-          <div class="role">팀원</div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="eyebrow">Experience</div>
+        <h2 data-i18n="experience.title">경력</h2>
+        <div class="card-list">
+          <div class="card">
+            <div class="when" data-i18n="date.research">2025.08 — 현재</div>
+            <div class="experience-main">
+              <div class="experience-logo">
+                <img
+                  src="assets/gli.png"
+                  alt="Graph &amp; Language Intelligence Lab 로고"
+                />
+              </div>
+              <div>
+                <div class="org">Graph &amp; Language Intelligence Lab</div>
+                <div class="role" data-i18n="experience.researcher">
+                  건국대학교 · 학부연구생
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="when">2024.06 — 2024.12</div>
+            <div class="experience-main">
+              <div class="experience-logo">
+                <img src="assets/kusd.png" alt="KU Student Developer 로고" />
+              </div>
+              <div>
+                <div class="org" data-i18n="experience.devteam">
+                  건국대 학생개발팀
+                </div>
+                <div class="role" data-i18n="experience.member">팀원</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="skills">
-  <div class="wrap">
-    <div class="eyebrow">Skills</div>
-    <h2>기술 스택</h2>
-    <div class="skill-block">
-      <div class="cat">ML / Data</div>
-      <div class="tag-row">
-        <span class="tag">Python</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">Scikit-learn</span>
-        <span class="tag">LLM (Prompt Engineering / API)</span>
+    <section id="skills">
+      <div class="wrap">
+        <div class="eyebrow">Skills</div>
+        <h2 data-i18n="skills.title">기술 스택</h2>
+        <div class="skill-block">
+          <div class="cat">ML / Data</div>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">LLM (Prompt Engineering / API)</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="cat">Frontend</div>
+          <div class="tag-row">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="cat">Tools</div>
+          <div class="tag-row">
+            <span class="tag">GitHub</span>
+            <span class="tag">Notion</span>
+            <span class="tag">Figma</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="skill-block">
-      <div class="cat">Frontend</div>
-      <div class="tag-row">
-        <span class="tag">React</span>
-        <span class="tag">TypeScript</span>
-      </div>
-    </div>
-    <div class="skill-block">
-      <div class="cat">Tools</div>
-      <div class="tag-row">
-        <span class="tag">GitHub</span>
-        <span class="tag">Notion</span>
-        <span class="tag">Figma</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="eyebrow">Projects</div>
-    <h2>프로젝트</h2>
+    <section id="projects">
+      <div class="wrap">
+        <div class="eyebrow">Projects</div>
+        <h2 data-i18n="projects.title">프로젝트</h2>
 
-    <div class="project-card">
-      <div class="top-row">
-        <a class="title" href="https://github.com/katekim512" target="_blank">로그 이상탐지 모델 설계</a>
-      </div>
-      <p class="desc">템플릿 기반 로그 구조화와 임베딩 기법을 결합해 F1-score 기준 약 5%p의 이상탐지 성능을 개선했습니다.</p>
-    </div>
+        <div class="project-grid">
+          <a class="project-card" href="projects/child-expedition.html">
+            <div class="top-row">
+              <span class="title" data-i18n="projects.expedition.title">아이원정대찾기</span>
+              <span class="award-chip" data-i18n="projects.expedition.award">째각원정대 협업</span>
+            </div>
+            <p class="desc" data-i18n="projects.expedition.desc">1분 놀이 성향 테스트 · 맞춤 체험 추천 · 공유율 23% → 45%</p>
+            <span class="view-more" data-i18n="projects.more">자세히 보기 →</span>
+          </a>
+          <a class="project-card" href="projects/log-anomaly-detection.html">
+            <div class="top-row">
+              <span class="title" data-i18n="projects.log.title"
+                >로그 이상탐지 모델 설계</span
+              >
+              <span class="award-chip" data-i18n="projects.log.award"
+                >연구 및 논문</span
+              >
+            </div>
+            <p class="desc" data-i18n="projects.log.desc">의미·빈도 복합 임베딩 기반 로그 이상탐지 · LogBERT 성능 개선</p>
+            <span class="view-more" data-i18n="projects.more"
+              >자세히 보기 →</span
+            >
+          </a>
 
-    <div class="project-card">
-      <div class="top-row">
-        <a class="title" href="https://github.com/jiheunkim/BbobaVoca" target="_blank">뽑아보카</a>
-        <span class="award-chip">Epson Challenge 장려상</span>
-      </div>
-      <p class="desc">LLM 기반으로 사용자 맞춤 단어카드를 생성하고 Epson 프린터로 출력하는 서비스입니다.</p>
-    </div>
+          <a class="project-card" href="projects/bbobavoca.html">
+            <div class="top-row">
+              <span class="title">뽑아보카</span>
+              <span class="award-chip" data-i18n="projects.bboba.award"
+                >Epson Challenge 장려상</span
+              >
+            </div>
+            <p class="desc" data-i18n="projects.bboba.desc">LLM 맞춤 단어 카드 생성 · Epson 프린터 연동</p>
+            <span class="view-more" data-i18n="projects.more"
+              >자세히 보기 →</span
+            >
+          </a>
 
-    <div class="project-card">
-      <div class="top-row">
-        <a class="title" href="https://github.com/katekim512/RoadMapKU.git" target="_blank">KUMAP</a>
-        <span class="award-chip">사업화 및 배포</span>
-      </div>
-      <p class="desc">전공 역량 기반 로드맵 서비스로, 사용자와 운영자 간 요구사항 충돌을 데이터 기반으로 해결하고 실제 배포까지 이어졌습니다.</p>
-    </div>
+          <a class="project-card" href="projects/kumap.html">
+            <div class="top-row">
+              <span class="title">KUMAP</span>
+              <span class="award-chip" data-i18n="projects.kumap.award"
+                >사업화 및 배포</span
+              >
+            </div>
+            <p class="desc" data-i18n="projects.kumap.desc">전공역량 기반 학업 로드맵 · 탐색 단계 67% 축소 · 실제 배포</p>
+            <span class="view-more" data-i18n="projects.more"
+              >자세히 보기 →</span
+            >
+          </a>
 
-    <div class="project-card">
-      <div class="top-row">
-        <a class="title" href="https://github.com/katekim512/AI-Learning.git" target="_blank">아이러닝</a>
-        <span class="award-chip">관광데이터 공모전 우수상</span>
-      </div>
-      <p class="desc">AI 기반으로 사용자 맞춤형 역사 교육 여행 일정을 설계해주는 서비스입니다.</p>
-    </div>
+          <a class="project-card" href="projects/ai-learning.html">
+            <div class="top-row">
+              <span class="title">아이러닝</span>
+              <span class="award-chip" data-i18n="projects.ilearning.award"
+                >관광데이터 공모전 우수상</span
+              >
+            </div>
+            <p class="desc" data-i18n="projects.ilearning.desc">AI 맞춤 역사 교육여행 · 공공 데이터 연동 · 일정 관리</p>
+            <span class="view-more" data-i18n="projects.more"
+              >자세히 보기 →</span
+            >
+          </a>
 
-    <div class="project-card">
-      <div class="top-row">
-        <a class="title" href="https://github.com/katekim512/LLapport.git" target="_blank">LLapport</a>
-        <span class="award-chip">메디컬 해커톤 장려상</span>
-      </div>
-      <p class="desc">뇌졸중 조기진단을 돕는 서비스입니다.</p>
-    </div>
+          <a
+            class="project-card"
+            href="https://github.com/katekim512/LLapport.git"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="top-row">
+              <span class="title">LLapport</span>
+              <span class="award-chip" data-i18n="projects.llapport.award"
+                >메디컬 해커톤 장려상</span
+              >
+            </div>
+            <p class="desc" data-i18n="projects.llapport.desc">뇌졸중 조기진단 지원 서비스</p>
+          </a>
 
-    <div class="project-card">
-      <div class="top-row">
-        <a class="title" href="https://github.com/katekim512/Conicorn.git" target="_blank">Coinicorn</a>
-      </div>
-      <p class="desc">해외 가상화폐 뉴스를 번역해주는 서비스입니다.</p>
-    </div>
+          <a
+            class="project-card"
+            href="https://github.com/katekim512/Conicorn.git"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="top-row"><span class="title">Coinicorn</span></div>
+            <p class="desc" data-i18n="projects.coinicorn.desc">해외 가상화폐 뉴스 번역</p>
+          </a>
 
-    <div class="project-card">
-      <div class="top-row">
-        <a class="title" href="https://github.com/katekim512/PoSSG.git" target="_blank">포쓱</a>
-      </div>
-      <p class="desc">생성형 AI로 포트폴리오를 자동 생성해주는 서비스입니다.</p>
-    </div>
+          <a class="project-card" href="projects/possg.html">
+            <div class="top-row"><span class="title">포쓱 (PoSSG)</span></div>
+            <p class="desc" data-i18n="projects.possg.desc">AI 포트폴리오 자동 생성 · 맞춤 직무·취업 로드맵 추천</p>
+            <span class="view-more" data-i18n="projects.more"
+              >자세히 보기 →</span
+            >
+          </a>
 
-  </div>
-</section>
+          <a class="project-card" href="projects/storyon.html">
+            <div class="top-row">
+              <span class="title">스토리온 (StoryON)</span>
+            </div>
+            <p class="desc" data-i18n="projects.storyon.desc">AR 기반 참여형 동화책 · 능동적 학습 경험</p>
+            <span class="view-more" data-i18n="projects.more"
+              >자세히 보기 →</span
+            >
+          </a>
 
-<section id="awards">
-  <div class="wrap">
-    <div class="eyebrow">Awards</div>
-    <h2>수상</h2>
-    <div class="card" style="display:block;border-radius:16px;">
-      <div class="award-row">
-        <div class="name">문화체육관광 데이터 활용대회 최우수상</div>
-        <div class="when">2024.12</div>
+          <a class="project-card" href="projects/culture-data.html">
+            <div class="top-row">
+              <span class="title" data-i18n="projects.culture.title"
+                >불균형을 기회로</span
+              >
+              <span class="award-chip culture-award" data-i18n="projects.culture.award">2024 문화체육관광 데이터 활용대회 최우수상</span>
+            </div>
+            <p class="desc" data-i18n="projects.culture.desc">전라권 문화활동 불균형 분석 · 지역 군집화 · 맞춤 정책 제안</p>
+            <span class="view-more" data-i18n="projects.more"
+              >자세히 보기 →</span
+            >
+          </a>
+        </div>
       </div>
-      <div class="award-row">
-        <div class="name">관광데이터 활용 공모전 우수상</div>
-        <div class="when">2024.11</div>
-      </div>
-      <div class="award-row">
-        <div class="name">Epson Challenge 장려상</div>
-        <div class="when">2024.06</div>
-      </div>
-      <div class="award-row">
-        <div class="name">KU 메디컬 해커톤 장려상</div>
-        <div class="when">2023.10</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<footer>© 2026 Yeeun Kim</footer>
+    <section id="awards">
+      <div class="wrap">
+        <div class="eyebrow">Awards</div>
+        <h2 data-i18n="awards.title">수상</h2>
+        <div class="card" style="display: block; border-radius: 16px">
+          <div class="award-row">
+            <div>
+              <div class="name" data-i18n="awards.capstone">2026 Future X Capstone Design Challenge 최우수상</div>
+              <div class="role" data-i18n="awards.capstone.org">건국대학교 RISE 사업단</div>
+            </div>
+            <div class="when">2026.07.16</div>
+          </div>
+          <div class="award-row">
+            <div>
+            <div class="name" data-i18n="awards.one">
+              2024 문화체육관광 데이터 활용대회 최우수상
+            </div>
+            <div class="role" data-i18n="awards.one.org">한국문화관광연구원</div>
+            </div>
+            <div class="when">2024.12.05</div>
+          </div>
+          <div class="award-row">
+            <div>
+            <div class="name" data-i18n="awards.two">
+              2024 관광데이터 활용 공모전 우수상
+            </div>
+            <div class="role" data-i18n="awards.two.org">한국관광공사 × 카카오</div>
+            </div>
+            <div class="when">2024.11.19</div>
+          </div>
+          <div class="award-row">
+            <div>
+            <div class="name" data-i18n="awards.three">
+              2024 Epson Challenge 장려상
+            </div>
+            <div class="role" data-i18n="awards.three.org">한국엡손</div>
+            </div>
+            <div class="when">2024.06.29</div>
+          </div>
+          <div class="award-row">
+            <div>
+            <div class="name" data-i18n="awards.four">
+              2023 KU 메디컬 해커톤 장려상
+            </div>
+            <div class="role" data-i18n="awards.four.org">건국대학교SW중심사업단</div>
+            </div>
+            <div class="when">2023.10.20</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</body>
+    <section id="scholarships">
+      <div class="wrap">
+        <div class="eyebrow">Scholarships</div>
+        <h2 data-i18n="scholarships.title">장학금</h2>
+        <div class="card" style="display:block">
+          <div class="name">Konkuk University, 2024 Spring · 2024 Fall</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 Yeeun Kim</footer>
+
+    <script>
+      const translations = {
+        ko: {
+          'nav.label': '주요 메뉴',
+          'nav.about': '소개',
+          'nav.education': '학력',
+          'nav.experience': '경력',
+          'nav.skills': '기술',
+          'nav.projects': '프로젝트',
+          'nav.awards': '수상',
+          'hero.badge': 'ML 엔지니어 · 건국대학교',
+          'hero.photo': '김예은 프로필 사진',
+          'hero.lede':
+            '안녕하세요! 현재 <a href="https://cse.konkuk.ac.kr/cse/index.do" target="_blank" rel="noopener noreferrer">건국대학교 컴퓨터공학부</a> 학부생입니다. 현재 <a href="https://bkoh509.github.io/" target="_blank" rel="noopener noreferrer">오병국 교수님</a>의 지도를 받아 건국대학교 <a href="https://gli.konkuk.ac.kr/" target="_blank" rel="noopener noreferrer">Graph &amp; Language Intelligence Lab</a>에서 학부연구생으로 활동하고 있습니다.',
+          'focus.title': '지금 집중하는 것',
+          'focus.one': 'LLM 기반 개인화 서비스 설계',
+          'focus.two': '사용자 데이터 기반 의사결정',
+          'focus.three': '실험 중심 문제 해결',
+          'education.title': '학력',
+          'education.konkuk': '건국대학교',
+          'education.major': '컴퓨터공학부 / 응용통계학과',
+          'education.highschool': '숙명여자고등학교',
+          'date.university': '2022.03 — 현재',
+          'date.research': '2025.08 — 현재',
+          'experience.title': '경력',
+          'experience.researcher': '건국대학교 · 학부연구생',
+          'experience.devteam': '건국대 학생개발팀',
+          'experience.member': '팀원',
+          'skills.title': '기술 스택',
+          'projects.title': '프로젝트',
+          'projects.expedition.title': '아이원정대찾기',
+          'projects.expedition.award': '째각원정대 협업',
+          'projects.expedition.desc': '1분 놀이 성향 테스트 · 맞춤 체험 추천 · 공유율 23% → 45%',
+          'projects.log.title': '로그 이상탐지 모델 설계',
+          'projects.log.award': '연구 및 논문',
+          'projects.log.desc':
+            '의미·빈도 복합 임베딩 기반 로그 이상탐지 · LogBERT 성능 개선',
+          'projects.bboba.award': 'Epson Challenge 장려상',
+          'projects.bboba.desc':
+            'LLM 맞춤 단어 카드 생성 · Epson 프린터 연동',
+          'projects.kumap.award': '사업화 및 배포',
+          'projects.kumap.desc':
+            '전공역량 기반 학업 로드맵 · 탐색 단계 67% 축소 · 실제 배포',
+          'projects.ilearning.award': '관광데이터 공모전 우수상',
+          'projects.ilearning.desc':
+            'AI 맞춤 역사 교육여행 · 공공 데이터 연동 · 일정 관리',
+          'projects.llapport.award': '메디컬 해커톤 장려상',
+          'projects.llapport.desc': '뇌졸중 조기진단 지원 서비스',
+          'projects.coinicorn.desc':
+            '해외 가상화폐 뉴스 번역',
+          'projects.possg.desc':
+            'AI 포트폴리오 자동 생성 · 맞춤 직무·취업 로드맵 추천',
+          'projects.storyon.desc':
+            'AR 기반 참여형 동화책 · 능동적 학습 경험',
+          'projects.culture.title': '불균형을 기회로',
+          'projects.culture.award': '2024 문화체육관광 데이터 활용대회 최우수상',
+          'projects.culture.desc':
+            '전라권 문화활동 불균형 분석 · 지역 군집화 · 맞춤 정책 제안',
+          'projects.more': '자세히 보기 →',
+          'awards.title': '수상',
+          'awards.capstone': '2026 Future X Capstone Design Challenge 최우수상',
+          'awards.capstone.org': '건국대학교 RISE 사업단',
+          'awards.one': '2024 문화체육관광 데이터 활용대회 최우수상',
+          'awards.one.org': '한국문화관광연구원',
+          'awards.two': '2024 관광데이터 활용 공모전 우수상',
+          'awards.two.org': '한국관광공사 × 카카오',
+          'awards.three': '2024 Epson Challenge 장려상',
+          'awards.three.org': '한국엡손',
+          'awards.four': '2023 KU 메디컬 해커톤 장려상',
+          'awards.four.org': '건국대학교SW중심사업단',
+          'scholarships.title': '장학금',
+        },
+        en: {
+          'nav.label': 'Main navigation',
+          'nav.about': 'About',
+          'nav.education': 'Education',
+          'nav.experience': 'Experience',
+          'nav.skills': 'Skills',
+          'nav.projects': 'Projects',
+          'nav.awards': 'Awards',
+          'hero.badge': 'ML Engineer · Konkuk University',
+          'hero.photo': 'Yeeun Kim profile photo',
+          'hero.lede':
+            'Hello! I am currently an undergraduate student in the <a href="https://sicte.konkuk.ac.kr/sicte/index.do" target="_blank" rel="noopener noreferrer">Department of Smart ICT Convergence Engineering</a> at <a href="https://www.konkuk.ac.kr/" target="_blank" rel="noopener noreferrer">Konkuk University</a>. I am also working as an undergraduate researcher at the <a href="https://gli.konkuk.ac.kr/" target="_blank" rel="noopener noreferrer">Graph &amp; Language Intelligence Lab</a>, Konkuk University, advised by Prof. <a href="https://bkoh509.github.io/" target="_blank" rel="noopener noreferrer">Byungkook Oh</a>.',
+          'focus.title': 'What I Focus On',
+          'focus.one': 'LLM-powered personalized services',
+          'focus.two': 'Data-informed product decisions',
+          'focus.three': 'Experiment-driven problem solving',
+          'education.title': 'Education',
+          'education.konkuk': 'Konkuk University',
+          'education.major':
+            'Computer Science and Engineering / Applied Statistics',
+          'education.highschool': 'Sookmyung Girls’ High School',
+          'date.university': 'Mar 2022 — Present',
+          'date.research': 'Aug 2025 — Present',
+          'experience.title': 'Experience',
+          'experience.researcher':
+            'Konkuk University · Undergraduate Researcher',
+          'experience.devteam': 'Konkuk University Student Development Team',
+          'experience.member': 'Team Member',
+          'skills.title': 'Tech Stack',
+          'projects.title': 'Projects',
+          'projects.expedition.title': 'Find Your Child’s Expedition',
+          'projects.expedition.award': 'Tictoc Expedition Collaboration',
+          'projects.expedition.desc': 'One-minute play-style quiz · Personalized activities · Share rate 23% → 45%',
+          'projects.log.title': 'Log Anomaly Detection Model',
+          'projects.log.award': 'Research & Paper',
+          'projects.log.desc':
+            'Semantic & frequency-aware log embeddings · Improved LogBERT detection',
+          'projects.bboba.award': 'Epson Challenge Honorable Mention',
+          'projects.bboba.desc':
+            'LLM-generated vocabulary cards · Epson printing integration',
+          'projects.kumap.award': 'Commercialized & Deployed',
+          'projects.kumap.desc':
+            'Competency-based academic roadmaps · 67% fewer navigation steps · Deployed',
+          'projects.ilearning.award':
+            'Tourism Data Competition Excellence Award',
+          'projects.ilearning.desc':
+            'AI history-learning trips · Public data integration · Itinerary planning',
+          'projects.llapport.award': 'Medical Hackathon Honorable Mention',
+          'projects.llapport.desc':
+            'Early stroke detection support',
+          'projects.coinicorn.desc':
+            'International cryptocurrency news translation',
+          'projects.possg.desc':
+            'AI portfolio generation · Personalized career and role recommendations',
+          'projects.storyon.desc':
+            'Interactive AR storybooks · Active learning',
+          'projects.culture.title': 'Turning Imbalance into Opportunity',
+          'projects.culture.award': '2024 Culture, Sports & Tourism Data Competition · Top Excellence Award',
+          'projects.culture.desc':
+            'Cultural participation gap analysis · Regional clustering · Tailored policy proposals',
+          'projects.more': 'View details →',
+          'awards.title': 'Awards',
+          'awards.capstone': 'Top Excellence Award, 2026 Future X Capstone Design Challenge',
+          'awards.capstone.org': 'Konkuk University RISE Project Group',
+          'awards.one.org': 'Korea Culture & Tourism Institute',
+          'awards.two.org': 'Korea Tourism Organization × Kakao',
+          'scholarships.title': 'Scholarships',
+          'awards.one':
+            'Top Excellence Award, 2024 Culture, Sports & Tourism Data Utilization Competition',
+          'awards.two': 'Excellence Award, 2024 Tourism Data Competition',
+          'awards.three': 'Honorable Mention, 2024 Epson Challenge',
+          'awards.three.org': 'Epson Korea',
+          'awards.four': 'Honorable Mention, 2023 KU Medical Hackathon',
+          'awards.four.org': 'Konkuk University SW-Centered University Project Group',
+        },
+      }
+
+      const languageButtons = document.querySelectorAll('[data-lang]')
+
+      function setLanguage(lang) {
+        const dictionary = translations[lang]
+        document.documentElement.lang = lang
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          element.textContent = dictionary[element.dataset.i18n]
+        })
+        document.querySelectorAll('[data-i18n-html]').forEach(element => {
+          element.innerHTML = dictionary[element.dataset.i18nHtml]
+        })
+        document.querySelectorAll('[data-i18n-aria-label]').forEach(element => {
+          element.setAttribute(
+            'aria-label',
+            dictionary[element.dataset.i18nAriaLabel],
+          )
+        })
+        languageButtons.forEach(button => {
+          button.setAttribute(
+            'aria-pressed',
+            String(button.dataset.lang === lang),
+          )
+        })
+        document
+          .querySelector('.language-toggle')
+          .setAttribute(
+            'aria-label',
+            lang === 'ko' ? '언어 선택' : 'Select language',
+          )
+        localStorage.setItem('language', lang)
+      }
+
+      languageButtons.forEach(button => {
+        button.addEventListener('click', () => setLanguage(button.dataset.lang))
+      })
+
+      setLanguage(localStorage.getItem('language') === 'en' ? 'en' : 'ko')
+    </script>
+  </body>
 </html>

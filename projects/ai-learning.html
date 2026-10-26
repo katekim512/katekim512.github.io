@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>아이러닝 — Yeeun Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="back-link" href="../index.html#projects">← 프로젝트로 돌아가기</a>
+    <div class="brand">Yeeun Kim</div>
+  </div>
+</div>
+
+<header class="proj-hero">
+  <div class="wrap">
+    <div class="kicker">2024 관광데이터 활용 공모전</div>
+    <h1>아이러닝 (AI-Learning)</h1>
+    <p class="subtitle">한국관광공사 관광콘텐츠를 활용한 AI 기반 맞춤형 역사 교육 여행 일정 서비스입니다.</p>
+    <div class="meta-row">
+      <span class="meta-chip">Project Manager / Frontend Developer</span><span class="meta-chip">2024.05 — 2024.10</span><span class="meta-chip">기여도 50%</span>
+      <span class="meta-chip">팀 프로패서 · 4인</span>
+    </div>
+  </div>
+</header>
+
+<section class="proj-section"><div class="wrap"><div class="case-stage">OVERVIEW</div><h2>공공 데이터와 생성형 AI로 설계하는 역사 교육여행</h2><ul><li><strong>대상:</strong> 초등학생 자녀와 역사 교육여행을 계획하는 가족</li><li><strong>서비스:</strong> 아이의 학습 수준·관심사·가족 일정에 맞춘 여행 코스 추천</li><li><strong>담당:</strong> 사용자 니즈 도출, AI 핵심 기능 구체화, 데이터 흐름 설계, 프론트엔드 개발</li><li><strong>연결:</strong> 관광 정보 + 날씨 + 공휴일 + 생성형 AI</li></ul><figure class="case-figure"><a href="images/ai-learning/service-overview.png" target="_blank" rel="noopener"><img src="images/ai-learning/service-overview.png" alt="아이러닝 전체 서비스 화면: 시작·일정 생성·캘린더·장소 상세·프로필" loading="lazy"></a><figcaption>아이러닝 전체 서비스 화면: 시작·일정 생성·캘린더·장소 상세·프로필</figcaption></figure></div></section>
+<section class="proj-section"><div class="wrap"><div class="case-stage">BACKGROUND</div><h2>역사 교육여행, 어디서부터 준비해야 할까?</h2><ul><li><strong>기획 계기:</strong> 한국관광공사 데이터를 활용한 관광 서비스 개발 공모전</li><li><strong>가설:</strong> 박물관·유적지를 아이의 학습 수준과 역사 흐름에 맞춰 연결하면 가족의 여행 준비 부담을 줄일 수 있음</li><li><strong>설문:</strong> 초등학생 학부모 20명 · 2024.07.15–07.17 · Google Forms</li><li><strong>방문 경험:</strong> 응답자 전원이 자녀와 박물관·유적지 방문 경험 보유</li><li><strong>주요 어려움:</strong> 전문적인 설명, 행사 정보 탐색, 시간·예산 계획</li></ul><div class="case-grid"><figure class="case-figure"><a href="images/ai-learning/survey-experience.png" target="_blank" rel="noopener"><img src="images/ai-learning/survey-experience.png" alt="자녀와 박물관·유적지를 방문한 경험: 응답자 100%" loading="lazy"></a><figcaption>자녀와 박물관·유적지를 방문한 경험: 응답자 100%</figcaption></figure><figure class="case-figure"><a href="images/ai-learning/survey-difficulties.png" target="_blank" rel="noopener"><img src="images/ai-learning/survey-difficulties.png" alt="역사 교육여행 준비 시 어려움에 대한 학부모 설문" loading="lazy"></a><figcaption>역사 교육여행 준비 시 어려움에 대한 학부모 설문</figcaption></figure></div></div></section>
+<section class="proj-section"><div class="wrap"><div class="case-stage">WHAT I DO</div><h2>아이디어를 실제 작동하는 서비스로 구현</h2><div class="feature-grid"><div class="feature-card"><div class="ftitle">AI 핵심 기능 기획</div><ul><li>ChatGPT를 활용한 개인화 일정 생성</li><li>장소별 AI 챗봇과 여행 패턴 분석 기능 설계</li></ul></div><div class="feature-card"><div class="ftitle">공공 데이터 연동과 흐름 설계</div><ul><li>관광·기상·공휴일 API의 데이터 연결</li><li>사용자 입력 → 장소 정보 → 일정 생성 → 캘린더 반영 흐름 설계</li></ul></div><div class="feature-card"><div class="ftitle">사용자 여정과 프론트엔드 구현</div><ul><li>입력부터 추천·수정·여행 중 정보 탐색까지 전체 흐름 설계</li><li>기능별 화면 구현 및 데이터 연동 참여</li></ul></div></div></div></section>
+<section class="proj-section"><div class="wrap"><div class="case-stage">DEEP DIVE · 01</div><h2>AI 기반 개인화 추천 일정 설계</h2><ul><li><strong>입력:</strong> 여행 기간·주기·지역·여행 스타일을 선택</li><li><strong>유연한 요청:</strong> 객관식 선택지와 자유 입력을 함께 지원</li><li><strong>데이터 연결:</strong> 관광 장소 정보를 바탕으로 AI 맞춤 일정 생성</li><li><strong>일정 관리:</strong> 완성된 계획을 캘린더로 확인하고 수정·추가·삭제</li><li><strong>체험학습 계획:</strong> 장소 상세 페이지에서 ChatGPT로 계획 자동 생성</li></ul></div></section>
+<section class="proj-section"><div class="wrap"><div class="case-stage">DEEP DIVE · 02</div><h2>데이터 연동으로 여행 상황에 대응</h2><div class="how-step-grid ai-learning-steps"><article class="how-step"><h3 class="case-subheading">01 · 날씨에 맞는 대체 장소</h3><ul><li>기상청 단기예보 API로 강수 예보 확인</li><li>팝업 UI로 일정 변경 안내</li><li>박물관·미술관 등 실내 관광지 제안</li></ul><figure class="case-figure"><a href="images/ai-learning/weather-alternatives.png" target="_blank" rel="noopener"><img src="images/ai-learning/weather-alternatives.png" alt="강수 예보 팝업과 실내 대체 장소 추천" loading="lazy"></a><figcaption>강수 예보 팝업과 실내 대체 장소 추천</figcaption></figure></article><article class="how-step"><h3 class="case-subheading">02 · 공휴일을 반영한 캘린더</h3><ul><li>한국천문연구원 API로 공휴일 정보 반영</li><li>가족 일정과 여행 계획을 함께 확인</li><li>날짜별 일정 추가·수정·삭제 지원</li></ul><figure class="case-figure"><a href="images/ai-learning/calendar.png" target="_blank" rel="noopener"><img src="images/ai-learning/calendar.png" alt="공휴일과 여행 일정을 표시한 캘린더" loading="lazy"></a><figcaption>공휴일과 여행 일정을 표시한 캘린더</figcaption></figure></article></div><h3 class="case-subheading">03 · 장소별 AI 챗봇</h3><ul><li>장소 상세 페이지에 ChatGPT 기반 챗봇 연결</li><li>유적지·박물관에서 궁금한 내용을 대화로 탐색</li><li>정보 조회에서 대화형 학습 경험으로 확장</li></ul><figure class="case-figure"><a href="images/ai-learning/place-chatbot.png" target="_blank" rel="noopener"><img src="images/ai-learning/place-chatbot.png" alt="장소 상세 정보와 역사 관련 질문에 답하는 AI 챗봇" loading="lazy"></a><figcaption>장소 상세 정보와 역사 관련 질문에 답하는 AI 챗봇</figcaption></figure></div></section>
+<section class="proj-section"><div class="wrap"><div class="case-stage">RESULT</div><h2>MVP 구현과 공모전 우수상</h2><div class="stat-row"><div class="stat-card"><div class="num">3개 이상</div><div class="label">외부 공공 API 연동</div></div><div class="stat-card"><div class="num">100곳</div><div class="label">핵심 교육 장소 데이터 정제·DB 구축</div></div><div class="stat-card"><div class="num">우수상</div><div class="label">2024 관광데이터 활용 공모전</div></div></div><ul><li><strong>결과물:</strong> 생성형 AI 기반 개인화 교육여행 추천 MVP 개발 완료</li><li><strong>사용자 검증:</strong> 설문을 통한 정보 탐색 문제 확인</li><li><strong>정성 성과:</strong> 사용자 테스트로 여행 계획 수립 시간 단축 효과 확인</li></ul><aside class="case-insight"><div class="case-insight-label">핵심 경험</div><p><strong>흩어진 공공 데이터를 사용자 여정에 맞게 연결하고, AI 추천을 실제 일정 관리와 학습 경험으로 구현했습니다.</strong></p></aside></div></section>
+<div class="proj-links">
+  <a href="https://github.com/katekim512/AI-Learning.git" target="_blank">🐙 GitHub Repository</a>
+</div>
+
+</body>
+</html>
